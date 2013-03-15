@@ -5,30 +5,30 @@
 
 (function() {
 
-  // Baseline setup
+  // 基础设定
   // --------------
 
-  // Establish the root object, `window` in the browser, or `global` on the server.
+  // 创建一个root对象，保存对全局对象的引用。在浏览器环境中即为`window`，在server环境中为`global`
   var root = this;
 
-  // Save the previous value of the `_` variable.
+  // 保存原全局对象中的`_`变量
   var previousUnderscore = root._;
 
-  // Establish the object that gets returned to break out of a loop iteration.
+  // 创建一个特殊的对象，这个对象用于控制在循环中跳出。见each函数
   var breaker = {};
 
-  // Save bytes in the minified (but not gzipped) version:
+  // 定义三个变量，分别存储Array、Object以及Function的`prototype`属性。
+  // 在压缩时（非gzipped时）可以节省字节
   var ArrayProto = Array.prototype, ObjProto = Object.prototype, FuncProto = Function.prototype;
 
-  // Create quick reference variables for speed access to core prototypes.
+  // 定义本地变量，以快速访问核心类的原型方法
   var push             = ArrayProto.push,
       slice            = ArrayProto.slice,
       concat           = ArrayProto.concat,
       toString         = ObjProto.toString,
       hasOwnProperty   = ObjProto.hasOwnProperty;
 
-  // All **ECMAScript 5** native function implementations that we hope to use
-  // are declared here.
+  // 定义将要实现的 **ECMAScript 5** 原生方法
   var
     nativeForEach      = ArrayProto.forEach,
     nativeMap          = ArrayProto.map,
@@ -43,17 +43,16 @@
     nativeKeys         = Object.keys,
     nativeBind         = FuncProto.bind;
 
-  // Create a safe reference to the Underscore object for use below.
+  // 创建Underscore对象的引用，将在后续的代码中调用
   var _ = function(obj) {
     if (obj instanceof _) return obj;
     if (!(this instanceof _)) return new _(obj);
     this._wrapped = obj;
   };
 
-  // Export the Underscore object for **Node.js**, with
-  // backwards-compatibility for the old `require()` API. If we're in
-  // the browser, add `_` as a global object via a string identifier,
-  // for Closure Compiler "advanced" mode.
+  // 输出Underscore对象。兼容Node.js中旧的`require()` API。
+  // 如果是在浏览器环境中，将以字符串标识符的形式输出`_`[?]，作为全局对象的属性。
+  // for Closure Compiler "advanced" mode.[?]
   if (typeof exports !== 'undefined') {
     if (typeof module !== 'undefined' && module.exports) {
       exports = module.exports = _;
@@ -63,23 +62,33 @@
     root._ = _;
   }
 
-  // Current version.
+  // 当前版本
   _.VERSION = '1.4.4';
 
-  // Collection Functions
+  // 集合函数
   // --------------------
 
-  // The cornerstone, an `each` implementation, aka `forEach`.
-  // Handles objects with the built-in `forEach`, arrays, and raw objects.
-  // Delegates to **ECMAScript 5**'s native `forEach` if available.
+  // 集合函数中的基础函数：`each`函数，亦称未`forEach`。
+  // 使用内建的`forEach`、数组以及原始对象来处理待迭代对象。
+  // 当**ECMAScript 5**原生的`forEach`方法可用时，将使用这个原生方法来处理。
+  // [注]`each`接受三个参数：待处理对象，迭代函数，[可选] 迭代函数运行的上下文
   var each = _.each = _.forEach = function(obj, iterator, context) {
     if (obj == null) return;
+    
+    // [注] 使用原生的`forEach`方法
     if (nativeForEach && obj.forEach === nativeForEach) {
       obj.forEach(iterator, context);
+
+    // [注] 待处理对象为数组。
+    // 通过obj.length === +obj.length判断
     } else if (obj.length === +obj.length) {
       for (var i = 0, l = obj.length; i < l; i++) {
+
+        // [注] 通过前面定义的break对象来跳出循环
         if (iterator.call(context, obj[i], i, obj) === breaker) return;
       }
+
+    // [注] 待处理对象为object，循环obj的own properties
     } else {
       for (var key in obj) {
         if (_.has(obj, key)) {
@@ -89,13 +98,17 @@
     }
   };
 
-  // Return the results of applying the iterator to each element.
-  // Delegates to **ECMAScript 5**'s native `map` if available.
+  // 在对象的每一个元素上执行函数，并返回结果数组
+  // 如果**ECMAScript 5** 原生map函数可用，则使用原生map函数
   _.map = _.collect = function(obj, iterator, context) {
     var results = [];
     if (obj == null) return results;
     if (nativeMap && obj.map === nativeMap) return obj.map(iterator, context);
+
+    // [注] 调用`each`函数
     each(obj, function(value, index, list) {
+
+      //[注] 数组添加元素小技巧，与results.push()执行结果一样
       results[results.length] = iterator.call(context, value, index, list);
     });
     return results;
@@ -238,7 +251,7 @@
   // Convenience version of a common use case of `filter`: selecting only objects
   // containing specific `key:value` pairs.
   _.where = function(obj, attrs, first) {
-    if (_.isEmpty(attrs)) return first ? void 0 : [];
+    if (_.isEmpty(attrs)) return first ? null : [];
     return _[first ? 'find' : 'filter'](obj, function(value) {
       for (var key in attrs) {
         if (attrs[key] !== value[key]) return false;
@@ -324,7 +337,7 @@
   // An internal function used for aggregate "group by" operations.
   var group = function(obj, value, context, behavior) {
     var result = {};
-    var iterator = lookupIterator(value == null ? _.identity : value);
+    var iterator = lookupIterator(value || _.identity);
     each(obj, function(value, index) {
       var key = iterator.call(context, value, index, obj);
       behavior(result, key, value);
@@ -574,25 +587,14 @@
   // Function (ahem) Functions
   // ------------------
 
-  // Reusable constructor function for prototype setting.
-  var ctor = function(){};
-
   // Create a function bound to a given object (assigning `this`, and arguments,
   // optionally). Delegates to **ECMAScript 5**'s native `Function.bind` if
   // available.
   _.bind = function(func, context) {
-    var args, bound;
     if (func.bind === nativeBind && nativeBind) return nativeBind.apply(func, slice.call(arguments, 1));
-    if (!_.isFunction(func)) throw new TypeError;
-    args = slice.call(arguments, 2);
-    return bound = function() {
-      if (!(this instanceof bound)) return func.apply(context, args.concat(slice.call(arguments)));
-      ctor.prototype = func.prototype;
-      var self = new ctor;
-      ctor.prototype = null;
-      var result = func.apply(self, args.concat(slice.call(arguments)));
-      if (Object(result) === result) return result;
-      return self;
+    var args = slice.call(arguments, 2);
+    return function() {
+      return func.apply(context, args.concat(slice.call(arguments)));
     };
   };
 
@@ -609,7 +611,7 @@
   // all callbacks defined on an object belong to it.
   _.bindAll = function(obj) {
     var funcs = slice.call(arguments, 1);
-    if (funcs.length === 0) throw new Error("bindAll must be passed function names");
+    if (funcs.length === 0) funcs = _.functions(obj);
     each(funcs, function(f) { obj[f] = _.bind(obj[f], obj); });
     return obj;
   };
@@ -639,7 +641,7 @@
 
   // Returns a function, that, when invoked, will only be triggered at most once
   // during a given window of time.
-  _.throttle = function(func, wait, immediate) {
+  _.throttle = function(func, wait) {
     var context, args, timeout, result;
     var previous = 0;
     var later = function() {
@@ -649,7 +651,6 @@
     };
     return function() {
       var now = new Date;
-      if (!previous && immediate === false) previous = now;
       var remaining = wait - (now - previous);
       context = this;
       args = arguments;
@@ -812,7 +813,7 @@
     each(slice.call(arguments, 1), function(source) {
       if (source) {
         for (var prop in source) {
-          if (obj[prop] === void 0) obj[prop] = source[prop];
+          if (obj[prop] == null) obj[prop] = source[prop];
         }
       }
     });
@@ -1067,10 +1068,10 @@
     };
   });
 
-  // If the value of the named `property` is a function then invoke it with the
-  // `object` as context; otherwise, return it.
+  // If the value of the named property is a function then invoke it;
+  // otherwise, return it.
   _.result = function(object, property) {
-    if (object == null) return void 0;
+    if (object == null) return null;
     var value = object[property];
     return _.isFunction(value) ? value.call(object) : value;
   };
