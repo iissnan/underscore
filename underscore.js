@@ -116,8 +116,8 @@
 
   var reduceError = 'Reduce of empty array with no initial value';
 
-  // **Reduce** builds up a single result from a list of values, aka `inject`,
-  // or `foldl`. Delegates to **ECMAScript 5**'s native `reduce` if available.
+  // **Reduce** 函数迭代处理对象的成员并返还一个单一的值。
+  // 此函数亦成为`inject`或者`foldl`。若 **ECMAScript 5** 原生支持reduce，将调用原生的reduce
   _.reduce = _.foldl = _.inject = function(obj, iterator, memo, context) {
     var initial = arguments.length > 2;
     if (obj == null) obj = [];
@@ -137,8 +137,8 @@
     return memo;
   };
 
-  // The right-associative version of reduce, also known as `foldr`.
-  // Delegates to **ECMAScript 5**'s native `reduceRight` if available.
+  // `reduce`函数的变形版，从对象的最后一个成员开始向前迭代。
+  // 此函数也称为`flodr`。若**ECMAScript 5**原生可用，将调用原生的方法。
   _.reduceRight = _.foldr = function(obj, iterator, memo, context) {
     var initial = arguments.length > 2;
     if (obj == null) obj = [];
