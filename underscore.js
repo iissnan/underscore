@@ -989,33 +989,33 @@
     };
   }
 
-  // Is a given object a finite number?
+  // 判断给定的变量是否有限数字，非`NaN`，`Infinity`，`-Infinity`。
+  // [注] 由于原声的isFinite("")会返回true，所以这里通过&&判断obj是否是有效的数字。
   _.isFinite = function(obj) {
     return isFinite(obj) && !isNaN(parseFloat(obj));
   };
 
-  // Is the given value `NaN`? (NaN is the only number which does not equal itself).
+  // 判断给定的变量是否是`NaN`。`NaN`是唯一个不等于其自身的数值。
   _.isNaN = function(obj) {
     return _.isNumber(obj) && obj != +obj;
   };
 
-  // Is a given value a boolean?
+  // 判断给定的变量是否是布尔类型值。
   _.isBoolean = function(obj) {
     return obj === true || obj === false || toString.call(obj) == '[object Boolean]';
   };
 
-  // Is a given value equal to null?
+  // 判断给定的变量是否等于`null`。
   _.isNull = function(obj) {
     return obj === null;
   };
 
-  // Is a given variable undefined?
+  // 判断给定的变量是否等于`undefined`。[注] 与void操作符的返回值比对。
   _.isUndefined = function(obj) {
     return obj === void 0;
   };
 
-  // Shortcut function for checking if an object has a given property directly
-  // on itself (in other words, not on a prototype).
+  // 判断key是否是obj的实例属性（也就是说，key非obj原型链上的属性）。
   _.has = function(obj, key) {
     return hasOwnProperty.call(obj, key);
   };
