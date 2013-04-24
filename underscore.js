@@ -52,7 +52,7 @@
 
   // 输出Underscore对象。兼容Node.js中旧的`require()` API。
   // 如果是在浏览器环境中，将以字符串标识符的形式输出`_`[?]，作为全局对象的属性。
-  // for Closure Compiler "advanced" mode.[?]
+  // for Closure Compiler "advanced" mode.[?]。
   if (typeof exports !== 'undefined') {
     if (typeof module !== 'undefined' && module.exports) {
       exports = module.exports = _;
@@ -68,10 +68,10 @@
   // 集合函数
   // --------------------
 
-  // 集合函数中的基础函数：`each`函数，亦称未`forEach`。
+  // 集合函数中的基础函数：`each`函数，亦称为`forEach`。
   // 使用内建的`forEach`、数组以及原始对象来处理待迭代对象。
-  // 当**ECMAScript 5**原生的`forEach`方法可用时，将使用这个原生方法来处理。
-  // [注]`each`接受三个参数：待处理对象，迭代函数，[可选] 迭代函数运行的上下文
+  // 当**ECMAScript 5**原生的`forEach`函数可用时，将使用这个原生函数来处理。
+  // [注]`each`接受三个参数：待处理对象，迭代函数，[可选] 迭代函数运行的上下文。
   var each = _.each = _.forEach = function(obj, iterator, context) {
     if (obj == null) return;
     
@@ -98,8 +98,9 @@
     }
   };
 
-  // 在对象的每一个元素上执行函数，并返回结果数组
-  // 如果**ECMAScript 5** 原生map函数可用，则使用原生map函数
+  // `map`函数：在对象的每一个元素上执行函数，并返回结果数组。
+  // 如果**ECMAScript 5** 原生`map`函数可用，则使用原生`map`函数。
+  // 此函数亦称为`collect`。
   _.map = _.collect = function(obj, iterator, context) {
     var results = [];
     if (obj == null) return results;
@@ -116,8 +117,9 @@
 
   var reduceError = 'Reduce of empty array with no initial value';
 
-  // **Reduce** 函数迭代处理对象的成员并返还一个单一的值。
-  // 此函数亦成为`inject`或者`foldl`。若 **ECMAScript 5** 原生支持reduce，将调用原生的reduce
+  // `Reduce`函数：迭代处理对象的成员并返还一个单一的值。
+  // 若 **ECMAScript 5** 原生支持`reduce`，将调用原生的`reduce`函数。
+  // 此函数亦成为`inject`或者`foldl`。
   _.reduce = _.foldl = _.inject = function(obj, iterator, memo, context) {
     var initial = arguments.length > 2;
     if (obj == null) obj = [];
@@ -137,8 +139,9 @@
     return memo;
   };
 
-  // `reduce`函数的变形版，从对象的最后一个成员开始向前迭代。
-  // 此函数也称为`flodr`。若**ECMAScript 5**原生可用，将调用原生的方法。
+  // `reduce`函数的变形版：从对象的最后一个成员开始向前迭代。
+  // 若**ECMAScript 5**的`reduceRight可用，将调用`reduceRight`函数。
+  // 此函数也称为`flodr`。
   _.reduceRight = _.foldr = function(obj, iterator, memo, context) {
     var initial = arguments.length > 2;
     if (obj == null) obj = [];
@@ -164,7 +167,8 @@
     return memo;
   };
 
-  // Return the first value which passes a truth test. Aliased as `detect`.
+  // `find`函数：返回可迭代对象中第一个使得函数返回true的元素。
+  // 此函数亦称为`detect`。
   _.find = _.detect = function(obj, iterator, context) {
     var result;
     any(obj, function(value, index, list) {
@@ -176,9 +180,9 @@
     return result;
   };
 
-  // Return all the elements that pass a truth test.
-  // Delegates to **ECMAScript 5**'s native `filter` if available.
-  // Aliased as `select`.
+  // `filter`函数：返回待迭代对象中可使函数返回true的元素。
+  // 若**ECMAScript**的`filter`可用，将调用`filter`函数。
+  // 此函数亦称为`select`。
   _.filter = _.select = function(obj, iterator, context) {
     var results = [];
     if (obj == null) return results;
@@ -189,16 +193,17 @@
     return results;
   };
 
-  // Return all the elements for which a truth test fails.
+  // `reject`函数：返回待迭代对象中可使函数返回false的元素。
+  // [注] 与`filter`相反。
   _.reject = function(obj, iterator, context) {
     return _.filter(obj, function(value, index, list) {
       return !iterator.call(context, value, index, list);
     }, context);
   };
 
-  // Determine whether all of the elements match a truth test.
-  // Delegates to **ECMAScript 5**'s native `every` if available.
-  // Aliased as `all`.
+  // `every`函数：判断是否待迭代对象的所有元素都可使函数返回true。
+  // 若**ECMAScript 5**的`every`可用，将调用`every`函数。
+  // 此函数亦称为`all`。
   _.every = _.all = function(obj, iterator, context) {
     iterator || (iterator = _.identity);
     var result = true;
@@ -210,9 +215,9 @@
     return !!result;
   };
 
-  // Determine if at least one element in the object matches a truth test.
-  // Delegates to **ECMAScript 5**'s native `some` if available.
-  // Aliased as `any`.
+  // `some`函数：判断待迭代对象中是否有元素可使函数返回true。
+  // 若**ECMAScript 5**的`some`可用，将调用`some`函数。
+  // 此函数亦称为`any`。
   var any = _.some = _.any = function(obj, iterator, context) {
     iterator || (iterator = _.identity);
     var result = false;
