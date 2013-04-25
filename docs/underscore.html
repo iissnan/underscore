@@ -1068,15 +1068,15 @@ check allows it to work with <code>_.map</code>.</p>
             </div>
             
             <div class="content"><div class='highlight'><pre>  <span class="keyword">var</span> flatten = <span class="keyword">function</span>(input, shallow, output) {
-    each(input, <span class="keyword">function</span>(value) {
-      <span class="keyword">if</span> (_.isArray(value)) {
-        shallow ? push.apply(output, value) : flatten(value, shallow, output);
-      } <span class="keyword">else</span> {
-        output.push(value);
-      }
-    });
-    <span class="keyword">return</span> output;
-  };</pre></div></div>
+        each(input, <span class="keyword">function</span>(value) {
+            <span class="keyword">if</span> (_.isArray(value)) {
+                shallow ? push.apply(output, value) : flatten(value, shallow, output);
+            } <span class="keyword">else</span> {
+                output.push(value);
+            }
+        });
+        <span class="keyword">return</span> output;
+    };</pre></div></div>
             
         </li>
         
@@ -1798,7 +1798,7 @@ consuming the return value of the function that follows.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-83">&#182;</a>
               </div>
-              <p>Extend a given object with all the properties in passed-in object(s).</p>
+              <p>extend函数：扩展给定的对象。可接收多个参数。</p>
 
             </div>
             
@@ -1822,7 +1822,7 @@ consuming the return value of the function that follows.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-84">&#182;</a>
               </div>
-              <p>Return a copy of the object only containing the whitelisted properties.</p>
+              <p>pick函数：返回一个新对象，包含参数所给定键的键值对</p>
 
             </div>
             
@@ -1844,7 +1844,7 @@ consuming the return value of the function that follows.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-85">&#182;</a>
               </div>
-              <p>Return a copy of the object without the blacklisted properties.</p>
+              <p>omit函数：返回一个新对象，包含参数指定键以外的键值对</p>
 
             </div>
             
@@ -1866,7 +1866,7 @@ consuming the return value of the function that follows.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-86">&#182;</a>
               </div>
-              <p>Fill in a given object with default properties.</p>
+              <p>defaults函数：给指定对象填充默认值。</p>
 
             </div>
             

@@ -442,15 +442,15 @@
 
   // Internal implementation of a recursive `flatten` function.
   var flatten = function(input, shallow, output) {
-    each(input, function(value) {
-      if (_.isArray(value)) {
-        shallow ? push.apply(output, value) : flatten(value, shallow, output);
-      } else {
-        output.push(value);
-      }
-    });
-    return output;
-  };
+        each(input, function(value) {
+            if (_.isArray(value)) {
+                shallow ? push.apply(output, value) : flatten(value, shallow, output);
+            } else {
+                output.push(value);
+            }
+        });
+        return output;
+    };
 
   // Return a completely flattened version of an array.
   _.flatten = function(array, shallow) {
@@ -795,7 +795,7 @@
     return names.sort();
   };
 
-  // Extend a given object with all the properties in passed-in object(s).
+  // extend函数：扩展给定的对象。可接收多个参数。
   _.extend = function(obj) {
     each(slice.call(arguments, 1), function(source) {
       if (source) {
@@ -807,7 +807,7 @@
     return obj;
   };
 
-  // Return a copy of the object only containing the whitelisted properties.
+  // pick函数：返回一个新对象，包含参数所给定键的键值对
   _.pick = function(obj) {
     var copy = {};
     var keys = concat.apply(ArrayProto, slice.call(arguments, 1));
@@ -817,7 +817,7 @@
     return copy;
   };
 
-   // Return a copy of the object without the blacklisted properties.
+  // omit函数：返回一个新对象，包含参数指定键以外的键值对
   _.omit = function(obj) {
     var copy = {};
     var keys = concat.apply(ArrayProto, slice.call(arguments, 1));
@@ -827,7 +827,7 @@
     return copy;
   };
 
-  // Fill in a given object with default properties.
+  // defaults函数：给指定对象填充默认值。
   _.defaults = function(obj) {
     each(slice.call(arguments, 1), function(source) {
       if (source) {
