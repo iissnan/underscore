@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0cdf203a-4168-484d-a0c9-1f9dfb3714f3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/docco.css" afterPath="$PROJECT_DIR$/docs/docco.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/underscore.html" afterPath="$PROJECT_DIR$/docs/underscore.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/underscore.js" afterPath="$PROJECT_DIR$/underscore.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="underscore.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="0cdf203a-4168-484d-a0c9-1f9dfb3714f3" time="1366696412102" ignored="false" />
+    <file path="/Dummy.txt" changelist="0cdf203a-4168-484d-a0c9-1f9dfb3714f3" time="1366875766511" ignored="false" />
     <file path="/underscore.js" changelist="0cdf203a-4168-484d-a0c9-1f9dfb3714f3" time="1373252575318" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -74,10 +72,10 @@
       <file leaf-file-name="underscore.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/underscore.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="153" column="29" selection-start="4810" selection-end="4810" vertical-scroll-proportion="0.49122807">
+            <state line="773" column="39" selection-start="25860" selection-end="25860" vertical-scroll-proportion="-0.12280702">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
-                <marker date="1366698503057" expanded="true" signature="6236:6341" placeholder="//..." />
+                <marker date="1366878690388" expanded="true" signature="6236:6341" placeholder="//..." />
               </folding>
             </state>
           </provider>
@@ -142,14 +140,14 @@
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="MemberChooser.sorted" value="false" />
     <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors.Font" />
-    <property name="FullScreen" value="false" />
+    <property name="MemberChooser.sorted" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
+    <property name="FullScreen" value="false" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="MemberChooser.copyJavadoc" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="MemberChooser.copyJavadoc" value="false" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -172,6 +170,19 @@
       <option name="SHMEM_ADDRESS" value="javadebug" />
       <option name="HOST" value="localhost" />
       <option name="PORT" value="5005" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
@@ -200,19 +211,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -362,7 +360,37 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <marker date="1366698503057" expanded="true" signature="6236:6341" placeholder="//..." />
+            <marker date="1366878690388" expanded="true" signature="6236:6341" placeholder="//..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/underscore.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="970" column="0" selection-start="32893" selection-end="32893" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <marker date="1366878690388" expanded="true" signature="6236:6341" placeholder="//..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/underscore.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <marker date="1366878690388" expanded="true" signature="6236:6341" placeholder="//..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/underscore.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <marker date="1366878690388" expanded="true" signature="6236:6341" placeholder="//..." />
           </folding>
         </state>
       </provider>
@@ -372,7 +400,7 @@
         <state line="200" column="16" selection-start="6316" selection-end="6316" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <marker date="1366698503057" expanded="true" signature="6236:6341" placeholder="//..." />
+            <marker date="1366878690388" expanded="true" signature="6236:6341" placeholder="//..." />
           </folding>
         </state>
       </provider>
@@ -382,7 +410,7 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <marker date="1366698503057" expanded="true" signature="6236:6341" placeholder="//..." />
+            <marker date="1366878690388" expanded="true" signature="6236:6341" placeholder="//..." />
           </folding>
         </state>
       </provider>
@@ -392,7 +420,7 @@
         <state line="248" column="4" selection-start="8204" selection-end="8204" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <marker date="1366698503057" expanded="true" signature="6236:6341" placeholder="//..." />
+            <marker date="1366878690388" expanded="true" signature="6236:6341" placeholder="//..." />
           </folding>
         </state>
       </provider>
@@ -402,17 +430,24 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <marker date="1366698503057" expanded="true" signature="6236:6341" placeholder="//..." />
+            <marker date="1366878690388" expanded="true" signature="6236:6341" placeholder="//..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavascriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript5.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="7" selection-start="648" selection-end="648" vertical-scroll-proportion="0.33333334">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/underscore.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="153" column="29" selection-start="4810" selection-end="4810" vertical-scroll-proportion="0.49122807">
+        <state line="773" column="39" selection-start="25860" selection-end="25860" vertical-scroll-proportion="-0.12280702">
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <marker date="1366698503057" expanded="true" signature="6236:6341" placeholder="//..." />
+            <marker date="1366878690388" expanded="true" signature="6236:6341" placeholder="//..." />
           </folding>
         </state>
       </provider>

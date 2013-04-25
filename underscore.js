@@ -229,10 +229,12 @@
     return !!result;
   };
 
-  // Determine if the array or object contains a given value (using `===`).
-  // Aliased as `include`.
+  // 判断对象或数组中是否包含给定的值。
+  // 此函数亦称为`include`。
   _.contains = _.include = function(obj, target) {
     if (obj == null) return false;
+
+    // [注]调用**ECMAScript**的`indexOf`函数。
     if (nativeIndexOf && obj.indexOf === nativeIndexOf) return obj.indexOf(target) != -1;
     return any(obj, function(value) {
       return value === target;
@@ -389,7 +391,7 @@
     return _.values(obj);
   };
 
-  // Return the number of elements in an object.
+  // 返回对象的元素个数
   _.size = function(obj) {
     if (obj == null) return 0;
     return (obj.length === +obj.length) ? obj.length : _.keys(obj).length;
@@ -750,11 +752,11 @@
     };
   };
 
-  // Object Functions
+  // 对象相关的函数
   // ----------------
 
-  // Retrieve the names of an object's properties.
-  // Delegates to **ECMAScript 5**'s native `Object.keys`
+  // keys函数： 返回对象所有的键。
+  // 若**ECMAScript 5**的`Object.keys`可用，将调用Object.keys.
   _.keys = nativeKeys || function(obj) {
     if (obj !== Object(obj)) throw new TypeError('Invalid object');
     var keys = [];
@@ -762,14 +764,14 @@
     return keys;
   };
 
-  // Retrieve the values of an object's properties.
+  // values函数：返回对象所有键对应的值
   _.values = function(obj) {
     var values = [];
     for (var key in obj) if (_.has(obj, key)) values.push(obj[key]);
     return values;
   };
 
-  // Convert an object into a list of `[key, value]` pairs.
+  // paris函数：返回包含对象转换成`[key, value]`的数组
   _.pairs = function(obj) {
     var pairs = [];
     for (var key in obj) if (_.has(obj, key)) pairs.push([key, obj[key]]);
@@ -783,8 +785,8 @@
     return result;
   };
 
-  // Return a sorted list of the function names available on the object.
-  // Aliased as `methods`
+  // functions函数：返回对象的所有方法（已排序）
+  // 此函数亦称为`methods`
   _.functions = _.methods = function(obj) {
     var names = [];
     for (var key in obj) {
@@ -1028,8 +1030,8 @@
   // Utility Functions
   // -----------------
 
-  // Run Underscore.js in *noConflict* mode, returning the `_` variable to its
-  // previous owner. Returns a reference to the Underscore object.
+  // 以*noConfilct*模式运行Underscore.js，`_`变量将存放之间定义的对象。
+  // 函数执行返回Underscore对象的引用
   _.noConflict = function() {
     root._ = previousUnderscore;
     return this;
@@ -1040,14 +1042,14 @@
     return value;
   };
 
-  // Run a function **n** times.
+  // 执行函数**n**次，返回函数每次执行返回值组成的数组
   _.times = function(n, iterator, context) {
     var accum = Array(n);
     for (var i = 0; i < n; i++) accum[i] = iterator.call(context, i);
     return accum;
   };
 
-  // Return a random integer between min and max (inclusive).
+  // 返回min与max之间的随机数字（包括min和max）
   _.random = function(min, max) {
     if (max == null) {
       max = min;
