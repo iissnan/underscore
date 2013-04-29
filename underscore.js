@@ -397,27 +397,27 @@
     return (obj.length === +obj.length) ? obj.length : _.keys(obj).length;
   };
 
-  // Array Functions
+  // 数组相关函数
   // ---------------
 
-  // Get the first element of an array. Passing **n** will return the first N
-  // values in the array. Aliased as `head` and `take`. The **guard** check
-  // allows it to work with `_.map`.
+  // first函数： 获取数组的第一个元素。若提供**n**参数，将返回数组中从0到n-1的元素。
+  // **guard**参数标志是否可与`_.map`函数共同使用。
+  // 此函数亦称为`head`或者`take`
   _.first = _.head = _.take = function(array, n, guard) {
     if (array == null) return void 0;
     return (n != null) && !guard ? slice.call(array, 0, n) : array[0];
   };
 
-  // Returns everything but the last entry of the array. Especially useful on
-  // the arguments object. Passing **n** will return all the values in
-  // the array, excluding the last N. The **guard** check allows it to work with
-  // `_.map`.
+  // initial函数： 返回数组中除最后一个以外的所有元素。特别适用于arguments对象。
+  // 若传递**n**变量，将返回最后N个意外的所有元素。
+  // **guard**参数标志是否可与`._map`共用
   _.initial = function(array, n, guard) {
     return slice.call(array, 0, array.length - ((n == null) || guard ? 1 : n));
   };
 
-  // Get the last element of an array. Passing **n** will return the last N
-  // values in the array. The **guard** check allows it to work with `_.map`.
+  // last函数：返回数组的最后一个元素。
+  // 若提供**n**变量，将返回最后的n个元素。
+  // **guard**参数标志此函数是否可与`_.map`共用。
   _.last = function(array, n, guard) {
     if (array == null) return void 0;
     if ((n != null) && !guard) {
@@ -427,20 +427,20 @@
     }
   };
 
-  // Returns everything but the first entry of the array. Aliased as `tail` and `drop`.
-  // Especially useful on the arguments object. Passing an **n** will return
-  // the rest N values in the array. The **guard**
-  // check allows it to work with `_.map`.
+  // rest函数：返回除数组中第一个元素以外的所有元素。
+  // 特别适用于arguments对象。
+  // 若提供**n**变量，将返回除数组中前n个以外的元素。
+  // **guard**参数标志此函数是否可与`_.map`共用。
   _.rest = _.tail = _.drop = function(array, n, guard) {
     return slice.call(array, (n == null) || guard ? 1 : n);
   };
 
-  // Trim out all falsy values from an array.
+  // compact函数：过滤掉所有值等于false的元素
   _.compact = function(array) {
     return _.filter(array, _.identity);
   };
 
-  // Internal implementation of a recursive `flatten` function.
+  // 内部函数flatten，将数组（可能是多维）转化成一维数组
   var flatten = function(input, shallow, output) {
         each(input, function(value) {
             if (_.isArray(value)) {
@@ -452,12 +452,12 @@
         return output;
     };
 
-  // Return a completely flattened version of an array.
+  // flatten函数：将数组（可能包含数组）转化成一维数组
   _.flatten = function(array, shallow) {
     return flatten(array, shallow, []);
   };
 
-  // Return a version of the array that does not contain the specified value(s).
+  // without函数：返回未包含指定值的数组。
   _.without = function(array) {
     return _.difference(array, slice.call(arguments, 1));
   };

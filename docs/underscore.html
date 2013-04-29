@@ -950,7 +950,7 @@ an object should be inserted so as to maintain order. Uses binary search.</p>
               <div class="pilwrap for-h2">
                 <a class="pilcrow" href="#section-45">&#182;</a>
               </div>
-              <h2>Array Functions</h2>
+              <h2>数组相关函数</h2>
 
             </div>
             
@@ -963,9 +963,9 @@ an object should be inserted so as to maintain order. Uses binary search.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-46">&#182;</a>
               </div>
-              <p>Get the first element of an array. Passing <strong>n</strong> will return the first N
-values in the array. Aliased as <code>head</code> and <code>take</code>. The <strong>guard</strong> check
-allows it to work with <code>_.map</code>.</p>
+              <p>first函数： 获取数组的第一个元素。若提供<strong>n</strong>参数，将返回数组中从0到n-1的元素。
+<strong>guard</strong>参数标志是否可与<code>_.map</code>函数共同使用。
+此函数亦称为<code>head</code>或者<code>take</code></p>
 
             </div>
             
@@ -983,10 +983,9 @@ allows it to work with <code>_.map</code>.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-47">&#182;</a>
               </div>
-              <p>Returns everything but the last entry of the array. Especially useful on
-the arguments object. Passing <strong>n</strong> will return all the values in
-the array, excluding the last N. The <strong>guard</strong> check allows it to work with
-<code>_.map</code>.</p>
+              <p>initial函数： 返回数组中除最后一个以外的所有元素。特别适用于arguments对象。
+若传递<strong>n</strong>变量，将返回最后N个意外的所有元素。
+<strong>guard</strong>参数标志是否可与<code>._map</code>共用</p>
 
             </div>
             
@@ -1003,8 +1002,9 @@ the array, excluding the last N. The <strong>guard</strong> check allows it to w
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-48">&#182;</a>
               </div>
-              <p>Get the last element of an array. Passing <strong>n</strong> will return the last N
-values in the array. The <strong>guard</strong> check allows it to work with <code>_.map</code>.</p>
+              <p>last函数：返回数组的最后一个元素。
+若提供<strong>n</strong>变量，将返回最后的n个元素。
+<strong>guard</strong>参数标志此函数是否可与<code>_.map</code>共用。</p>
 
             </div>
             
@@ -1026,10 +1026,10 @@ values in the array. The <strong>guard</strong> check allows it to work with <co
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-49">&#182;</a>
               </div>
-              <p>Returns everything but the first entry of the array. Aliased as <code>tail</code> and <code>drop</code>.
-Especially useful on the arguments object. Passing an <strong>n</strong> will return
-the rest N values in the array. The <strong>guard</strong>
-check allows it to work with <code>_.map</code>.</p>
+              <p>rest函数：返回除数组中第一个元素以外的所有元素。
+特别适用于arguments对象。
+若提供<strong>n</strong>变量，将返回除数组中前n个以外的元素。
+<strong>guard</strong>参数标志此函数是否可与<code>_.map</code>共用。</p>
 
             </div>
             
@@ -1046,7 +1046,7 @@ check allows it to work with <code>_.map</code>.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-50">&#182;</a>
               </div>
-              <p>Trim out all falsy values from an array.</p>
+              <p>compact函数：过滤掉所有值等于false的元素</p>
 
             </div>
             
@@ -1063,7 +1063,7 @@ check allows it to work with <code>_.map</code>.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-51">&#182;</a>
               </div>
-              <p>Internal implementation of a recursive <code>flatten</code> function.</p>
+              <p>内部函数flatten，将数组（可能是多维）转化成一维数组</p>
 
             </div>
             
@@ -1087,7 +1087,7 @@ check allows it to work with <code>_.map</code>.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-52">&#182;</a>
               </div>
-              <p>Return a completely flattened version of an array.</p>
+              <p>flatten函数：将数组（可能包含数组）转化成一维数组</p>
 
             </div>
             
@@ -1104,7 +1104,7 @@ check allows it to work with <code>_.map</code>.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-53">&#182;</a>
               </div>
-              <p>Return a version of the array that does not contain the specified value(s).</p>
+              <p>without函数：返回未包含指定值的数组。</p>
 
             </div>
             
