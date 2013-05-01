@@ -383,7 +383,7 @@
     return low;
   };
 
-  // Safely convert anything iterable into a real, live array.
+  // 将obj（可能是null、数组、字符串、对象）转换成数组。
   _.toArray = function(obj) {
     if (!obj) return [];
     if (_.isArray(obj)) return slice.call(obj);
@@ -391,7 +391,7 @@
     return _.values(obj);
   };
 
-  // 返回对象的元素个数
+  // 返回对象的元素个数。
   _.size = function(obj) {
     if (obj == null) return 0;
     return (obj.length === +obj.length) ? obj.length : _.keys(obj).length;
@@ -644,8 +644,7 @@
     };
   };
 
-  // Delays a function for the given number of milliseconds, and then calls
-  // it with the arguments supplied.
+  // delay函数： 延迟wait毫秒之后执行func。
   _.delay = function(func, wait) {
     var args = slice.call(arguments, 2);
     return setTimeout(function(){ return func.apply(null, args); }, wait);
@@ -949,8 +948,8 @@
     return eq(a, b, [], []);
   };
 
-  // Is a given array, string, or object empty?
-  // An "empty" object has no enumerable own-properties.
+  // isEmpty函数： 判断给定的数组、字符串或者对象是否为空。
+  // 一个空的对象意味这个对象未包含任何实例属性(own-properties)。
   _.isEmpty = function(obj) {
     if (obj == null) return true;
     if (_.isArray(obj) || _.isString(obj)) return obj.length === 0;
@@ -958,23 +957,23 @@
     return true;
   };
 
-  // Is a given value a DOM element?
+  // isElement函数：判断给定的值是否是一个DOM元素。
   _.isElement = function(obj) {
     return !!(obj && obj.nodeType === 1);
   };
 
-  // Is a given value an array?
-  // Delegates to ECMA5's native Array.isArray
+  // isArray函数：判断给定的值是否是一个数组。
+  // 若**ECMAScript 5**的`Array.isArray`可用，将调用Array.isArray。
   _.isArray = nativeIsArray || function(obj) {
     return toString.call(obj) == '[object Array]';
   };
 
-  // Is a given variable an object?
+  // isObject函数： 判断给定的值是否为对象。
   _.isObject = function(obj) {
     return obj === Object(obj);
   };
 
-  // Add some isType methods: isArguments, isFunction, isString, isNumber, isDate, isRegExp.
+  // 类型判断函数： isArguments, isFunction, isString, isNumber, isDate, isRegExp。
   each(['Arguments', 'Function', 'String', 'Number', 'Date', 'RegExp'], function(name) {
     _['is' + name] = function(obj) {
       return toString.call(obj) == '[object ' + name + ']';
@@ -1037,7 +1036,8 @@
     return this;
   };
 
-  // Keep the identity function around for default iterators.
+  // identity函数： 返回参数的值。
+  // 作为默认的迭代函数，用于类似`_.filter`迭代类型函数的参数。
   _.identity = function(value) {
     return value;
   };
