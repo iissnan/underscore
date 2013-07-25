@@ -597,9 +597,8 @@
   // Reusable constructor function for prototype setting.
   var ctor = function(){};
 
-  // Create a function bound to a given object (assigning `this`, and arguments,
-  // optionally). Delegates to **ECMAScript 5**'s native `Function.bind` if
-  // available.
+  // bing函数：将函数绑定到指定对象上。
+  // 若**ECMAScript 5**的`Function.bind`可用，将调用Function.bind。
   _.bind = function(func, context) {
     var args, bound;
     if (func.bind === nativeBind && nativeBind) return nativeBind.apply(func, slice.call(arguments, 1));
