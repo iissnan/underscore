@@ -30,12 +30,11 @@
               <pre><code>Underscore.js 1.4.4
 http://underscorejs.org
 (c) 2009-2013 Jeremy Ashkenas, DocumentCloud Inc.
-Underscore may be freely distributed under the MIT license.</code></pre>
-
+Underscore may be freely distributed under the MIT license.
+</code></pre>
             </div>
             
-            <div class="content"><div class='highlight'><pre>
-(<span class="keyword">function</span>() {</pre></div></div>
+            <div class="content"><div class='highlight'><pre>(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span></pre></div></div>
             
         </li>
         
@@ -43,10 +42,10 @@ Underscore may be freely distributed under the MIT license.</code></pre>
         <li id="section-2">
             <div class="annotation">
               
-              <div class="pilwrap for-h2">
+              <div class="pilwrap ">
                 <a class="pilcrow" href="#section-2">&#182;</a>
               </div>
-              <h2>基础设定</h2>
+              <h2 id="-">基础设定</h2>
 
             </div>
             
@@ -170,7 +169,7 @@ Underscore may be freely distributed under the MIT license.</code></pre>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  <span class="keyword">var</span> _ = <span class="keyword">function</span>(obj) {
+            <div class="content"><div class='highlight'><pre>  <span class="keyword">var</span> _ = <span class="function"><span class="keyword">function</span><span class="params">(obj)</span> {</span>
     <span class="keyword">if</span> (obj <span class="keyword">instanceof</span> _) <span class="keyword">return</span> obj;
     <span class="keyword">if</span> (!(<span class="keyword">this</span> <span class="keyword">instanceof</span> _)) <span class="keyword">return</span> <span class="keyword">new</span> _(obj);
     <span class="keyword">this</span>._wrapped = obj;
@@ -221,10 +220,10 @@ for Closure Compiler &quot;advanced&quot; mode.[?]。</p>
         <li id="section-12">
             <div class="annotation">
               
-              <div class="pilwrap for-h2">
+              <div class="pilwrap ">
                 <a class="pilcrow" href="#section-12">&#182;</a>
               </div>
-              <h2>集合函数</h2>
+              <h2 id="-">集合函数</h2>
 
             </div>
             
@@ -244,7 +243,7 @@ for Closure Compiler &quot;advanced&quot; mode.[?]。</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  <span class="keyword">var</span> each = _.each = _.forEach = <span class="keyword">function</span>(obj, iterator, context) {
+            <div class="content"><div class='highlight'><pre>  <span class="keyword">var</span> each = _.each = _.forEach = <span class="function"><span class="keyword">function</span><span class="params">(obj, iterator, context)</span> {</span>
     <span class="keyword">if</span> (obj == <span class="literal">null</span>) <span class="keyword">return</span>;</pre></div></div>
             
         </li>
@@ -333,7 +332,7 @@ for Closure Compiler &quot;advanced&quot; mode.[?]。</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  _.map = _.collect = <span class="keyword">function</span>(obj, iterator, context) {
+            <div class="content"><div class='highlight'><pre>  _.map = _.collect = <span class="function"><span class="keyword">function</span><span class="params">(obj, iterator, context)</span> {</span>
     <span class="keyword">var</span> results = [];
     <span class="keyword">if</span> (obj == <span class="literal">null</span>) <span class="keyword">return</span> results;
     <span class="keyword">if</span> (nativeMap &amp;&amp; obj.map === nativeMap) <span class="keyword">return</span> obj.map(iterator, context);</pre></div></div>
@@ -351,7 +350,7 @@ for Closure Compiler &quot;advanced&quot; mode.[?]。</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>    each(obj, <span class="keyword">function</span>(value, index, list) {</pre></div></div>
+            <div class="content"><div class='highlight'><pre>    each(obj, <span class="function"><span class="keyword">function</span><span class="params">(value, index, list)</span> {</span></pre></div></div>
             
         </li>
         
@@ -388,14 +387,14 @@ for Closure Compiler &quot;advanced&quot; mode.[?]。</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  _.reduce = _.foldl = _.inject = <span class="keyword">function</span>(obj, iterator, memo, context) {
+            <div class="content"><div class='highlight'><pre>  _.reduce = _.foldl = _.inject = <span class="function"><span class="keyword">function</span><span class="params">(obj, iterator, memo, context)</span> {</span>
     <span class="keyword">var</span> initial = arguments.length &gt; <span class="number">2</span>;
     <span class="keyword">if</span> (obj == <span class="literal">null</span>) obj = [];
     <span class="keyword">if</span> (nativeReduce &amp;&amp; obj.reduce === nativeReduce) {
       <span class="keyword">if</span> (context) iterator = _.bind(iterator, context);
       <span class="keyword">return</span> initial ? obj.reduce(iterator, memo) : obj.reduce(iterator);
     }
-    each(obj, <span class="keyword">function</span>(value, index, list) {
+    each(obj, <span class="function"><span class="keyword">function</span><span class="params">(value, index, list)</span> {</span>
       <span class="keyword">if</span> (!initial) {
         memo = value;
         initial = <span class="literal">true</span>;
@@ -422,7 +421,7 @@ for Closure Compiler &quot;advanced&quot; mode.[?]。</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  _.reduceRight = _.foldr = <span class="keyword">function</span>(obj, iterator, memo, context) {
+            <div class="content"><div class='highlight'><pre>  _.reduceRight = _.foldr = <span class="function"><span class="keyword">function</span><span class="params">(obj, iterator, memo, context)</span> {</span>
     <span class="keyword">var</span> initial = arguments.length &gt; <span class="number">2</span>;
     <span class="keyword">if</span> (obj == <span class="literal">null</span>) obj = [];
     <span class="keyword">if</span> (nativeReduceRight &amp;&amp; obj.reduceRight === nativeReduceRight) {
@@ -434,7 +433,7 @@ for Closure Compiler &quot;advanced&quot; mode.[?]。</p>
       <span class="keyword">var</span> keys = _.keys(obj);
       length = keys.length;
     }
-    each(obj, <span class="keyword">function</span>(value, index, list) {
+    each(obj, <span class="function"><span class="keyword">function</span><span class="params">(value, index, list)</span> {</span>
       index = keys ? keys[--length] : --length;
       <span class="keyword">if</span> (!initial) {
         memo = obj[index];
@@ -461,9 +460,9 @@ for Closure Compiler &quot;advanced&quot; mode.[?]。</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  _.find = _.detect = <span class="keyword">function</span>(obj, iterator, context) {
+            <div class="content"><div class='highlight'><pre>  _.find = _.detect = <span class="function"><span class="keyword">function</span><span class="params">(obj, iterator, context)</span> {</span>
     <span class="keyword">var</span> result;
-    any(obj, <span class="keyword">function</span>(value, index, list) {
+    any(obj, <span class="function"><span class="keyword">function</span><span class="params">(value, index, list)</span> {</span>
       <span class="keyword">if</span> (iterator.call(context, value, index, list)) {
         result = value;
         <span class="keyword">return</span> <span class="literal">true</span>;
@@ -487,11 +486,11 @@ for Closure Compiler &quot;advanced&quot; mode.[?]。</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  _.filter = _.select = <span class="keyword">function</span>(obj, iterator, context) {
+            <div class="content"><div class='highlight'><pre>  _.filter = _.select = <span class="function"><span class="keyword">function</span><span class="params">(obj, iterator, context)</span> {</span>
     <span class="keyword">var</span> results = [];
     <span class="keyword">if</span> (obj == <span class="literal">null</span>) <span class="keyword">return</span> results;
     <span class="keyword">if</span> (nativeFilter &amp;&amp; obj.filter === nativeFilter) <span class="keyword">return</span> obj.filter(iterator, context);
-    each(obj, <span class="keyword">function</span>(value, index, list) {
+    each(obj, <span class="function"><span class="keyword">function</span><span class="params">(value, index, list)</span> {</span>
       <span class="keyword">if</span> (iterator.call(context, value, index, list)) results[results.length] = value;
     });
     <span class="keyword">return</span> results;
@@ -511,8 +510,8 @@ for Closure Compiler &quot;advanced&quot; mode.[?]。</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  _.reject = <span class="keyword">function</span>(obj, iterator, context) {
-    <span class="keyword">return</span> _.filter(obj, <span class="keyword">function</span>(value, index, list) {
+            <div class="content"><div class='highlight'><pre>  _.reject = <span class="function"><span class="keyword">function</span><span class="params">(obj, iterator, context)</span> {</span>
+    <span class="keyword">return</span> _.filter(obj, <span class="function"><span class="keyword">function</span><span class="params">(value, index, list)</span> {</span>
       <span class="keyword">return</span> !iterator.call(context, value, index, list);
     }, context);
   };</pre></div></div>
@@ -532,12 +531,12 @@ for Closure Compiler &quot;advanced&quot; mode.[?]。</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  _.every = _.all = <span class="keyword">function</span>(obj, iterator, context) {
+            <div class="content"><div class='highlight'><pre>  _.every = _.all = <span class="function"><span class="keyword">function</span><span class="params">(obj, iterator, context)</span> {</span>
     iterator || (iterator = _.identity);
     <span class="keyword">var</span> result = <span class="literal">true</span>;
     <span class="keyword">if</span> (obj == <span class="literal">null</span>) <span class="keyword">return</span> result;
     <span class="keyword">if</span> (nativeEvery &amp;&amp; obj.every === nativeEvery) <span class="keyword">return</span> obj.every(iterator, context);
-    each(obj, <span class="keyword">function</span>(value, index, list) {
+    each(obj, <span class="function"><span class="keyword">function</span><span class="params">(value, index, list)</span> {</span>
       <span class="keyword">if</span> (!(result = result &amp;&amp; iterator.call(context, value, index, list))) <span class="keyword">return</span> breaker;
     });
     <span class="keyword">return</span> !!result;
@@ -558,12 +557,12 @@ for Closure Compiler &quot;advanced&quot; mode.[?]。</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  <span class="keyword">var</span> any = _.some = _.any = <span class="keyword">function</span>(obj, iterator, context) {
+            <div class="content"><div class='highlight'><pre>  <span class="keyword">var</span> any = _.some = _.any = <span class="function"><span class="keyword">function</span><span class="params">(obj, iterator, context)</span> {</span>
     iterator || (iterator = _.identity);
     <span class="keyword">var</span> result = <span class="literal">false</span>;
     <span class="keyword">if</span> (obj == <span class="literal">null</span>) <span class="keyword">return</span> result;
     <span class="keyword">if</span> (nativeSome &amp;&amp; obj.some === nativeSome) <span class="keyword">return</span> obj.some(iterator, context);
-    each(obj, <span class="keyword">function</span>(value, index, list) {
+    each(obj, <span class="function"><span class="keyword">function</span><span class="params">(value, index, list)</span> {</span>
       <span class="keyword">if</span> (result || (result = iterator.call(context, value, index, list))) <span class="keyword">return</span> breaker;
     });
     <span class="keyword">return</span> !!result;
@@ -583,7 +582,7 @@ for Closure Compiler &quot;advanced&quot; mode.[?]。</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  _.contains = _.include = <span class="keyword">function</span>(obj, target) {
+            <div class="content"><div class='highlight'><pre>  _.contains = _.include = <span class="function"><span class="keyword">function</span><span class="params">(obj, target)</span> {</span>
     <span class="keyword">if</span> (obj == <span class="literal">null</span>) <span class="keyword">return</span> <span class="literal">false</span>;</pre></div></div>
             
         </li>
@@ -600,7 +599,7 @@ for Closure Compiler &quot;advanced&quot; mode.[?]。</p>
             </div>
             
             <div class="content"><div class='highlight'><pre>    <span class="keyword">if</span> (nativeIndexOf &amp;&amp; obj.indexOf === nativeIndexOf) <span class="keyword">return</span> obj.indexOf(target) != -<span class="number">1</span>;
-    <span class="keyword">return</span> any(obj, <span class="keyword">function</span>(value) {
+    <span class="keyword">return</span> any(obj, <span class="function"><span class="keyword">function</span><span class="params">(value)</span> {</span>
       <span class="keyword">return</span> value === target;
     });
   };</pre></div></div>
@@ -614,17 +613,11 @@ for Closure Compiler &quot;advanced&quot; mode.[?]。</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-30">&#182;</a>
               </div>
-              <p>Invoke a method (with arguments) on every item in a collection.</p>
+              <p>在集合的每个元素上调用方法，方法可带参数。</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  _.invoke = <span class="keyword">function</span>(obj, method) {
-    <span class="keyword">var</span> args = slice.call(arguments, <span class="number">2</span>);
-    <span class="keyword">var</span> isFunc = _.isFunction(method);
-    <span class="keyword">return</span> _.map(obj, <span class="keyword">function</span>(value) {
-      <span class="keyword">return</span> (isFunc ? method : value[method]).apply(value, args);
-    });
-  };</pre></div></div>
+            <div class="content"><div class='highlight'><pre>  _.invoke = <span class="function"><span class="keyword">function</span><span class="params">(obj, method)</span> {</span></pre></div></div>
             
         </li>
         
@@ -635,13 +628,13 @@ for Closure Compiler &quot;advanced&quot; mode.[?]。</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-31">&#182;</a>
               </div>
-              <p>Convenience version of a common use case of <code>map</code>: fetching a property.</p>
+              <p>获取参数</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  _.pluck = <span class="keyword">function</span>(obj, key) {
-    <span class="keyword">return</span> _.map(obj, <span class="keyword">function</span>(value){ <span class="keyword">return</span> value[key]; });
-  };</pre></div></div>
+            <div class="content"><div class='highlight'><pre>    <span class="keyword">var</span> args = slice.call(arguments, <span class="number">2</span>);
+    <span class="keyword">var</span> isFunc = _.isFunction(method);
+    <span class="keyword">return</span> _.map(obj, <span class="function"><span class="keyword">function</span><span class="params">(value)</span> {</span></pre></div></div>
             
         </li>
         
@@ -652,18 +645,11 @@ for Closure Compiler &quot;advanced&quot; mode.[?]。</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-32">&#182;</a>
               </div>
-              <p>Convenience version of a common use case of <code>filter</code>: selecting only objects
-containing specific <code>key:value</code> pairs.</p>
+              <p>若传入的<code>method</code>类型不是函数，将尝试调用集合元素对象的<code>method</code>方法</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  _.where = <span class="keyword">function</span>(obj, attrs, first) {
-    <span class="keyword">if</span> (_.isEmpty(attrs)) <span class="keyword">return</span> first ? <span class="literal">null</span> : [];
-    <span class="keyword">return</span> _[first ? <span class="string">'find'</span> : <span class="string">'filter'</span>](obj, <span class="keyword">function</span>(value) {
-      <span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> attrs) {
-        <span class="keyword">if</span> (attrs[key] !== value[key]) <span class="keyword">return</span> <span class="literal">false</span>;
-      }
-      <span class="keyword">return</span> <span class="literal">true</span>;
+            <div class="content"><div class='highlight'><pre>      <span class="keyword">return</span> (isFunc ? method : value[method]).apply(value, args);
     });
   };</pre></div></div>
             
@@ -676,13 +662,12 @@ containing specific <code>key:value</code> pairs.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-33">&#182;</a>
               </div>
-              <p>Convenience version of a common use case of <code>find</code>: getting the first object
-containing specific <code>key:value</code> pairs.</p>
+              <p>快捷方法，对使用<code>map</code>获取集合元素属性值场景的封装。</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  _.findWhere = <span class="keyword">function</span>(obj, attrs) {
-    <span class="keyword">return</span> _.where(obj, attrs, <span class="literal">true</span>);
+            <div class="content"><div class='highlight'><pre>  _.pluck = <span class="function"><span class="keyword">function</span><span class="params">(obj, key)</span> {</span>
+    <span class="keyword">return</span> _.map(obj, <span class="function"><span class="keyword">function</span><span class="params">(value)</span>{</span> <span class="keyword">return</span> value[key]; });
   };</pre></div></div>
             
         </li>
@@ -694,23 +679,19 @@ containing specific <code>key:value</code> pairs.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-34">&#182;</a>
               </div>
-              <p>Return the maximum element or (element-based computation).
-Can&#39;t optimize arrays of integers longer than 65,535 elements.
-See: <a href="https://bugs.webkit.org/show_bug.cgi?id=80797">https://bugs.webkit.org/show_bug.cgi?id=80797</a></p>
+              <p>Convenience version of a common use case of <code>filter</code>: selecting only objects
+containing specific <code>key:value</code> pairs.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  _.max = <span class="keyword">function</span>(obj, iterator, context) {
-    <span class="keyword">if</span> (!iterator &amp;&amp; _.isArray(obj) &amp;&amp; obj[<span class="number">0</span>] === +obj[<span class="number">0</span>] &amp;&amp; obj.length &lt; <span class="number">65535</span>) {
-      <span class="keyword">return</span> Math.max.apply(Math, obj);
-    }
-    <span class="keyword">if</span> (!iterator &amp;&amp; _.isEmpty(obj)) <span class="keyword">return</span> -<span class="literal">Infinity</span>;
-    <span class="keyword">var</span> result = {computed : -<span class="literal">Infinity</span>, value: -<span class="literal">Infinity</span>};
-    each(obj, <span class="keyword">function</span>(value, index, list) {
-      <span class="keyword">var</span> computed = iterator ? iterator.call(context, value, index, list) : value;
-      computed &gt;= result.computed &amp;&amp; (result = {value : value, computed : computed});
+            <div class="content"><div class='highlight'><pre>  _.where = <span class="function"><span class="keyword">function</span><span class="params">(obj, attrs, first)</span> {</span>
+    <span class="keyword">if</span> (_.isEmpty(attrs)) <span class="keyword">return</span> first ? <span class="literal">null</span> : [];
+    <span class="keyword">return</span> _[first ? <span class="string">'find'</span> : <span class="string">'filter'</span>](obj, <span class="function"><span class="keyword">function</span><span class="params">(value)</span> {</span>
+      <span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> attrs) {
+        <span class="keyword">if</span> (attrs[key] !== value[key]) <span class="keyword">return</span> <span class="literal">false</span>;
+      }
+      <span class="keyword">return</span> <span class="literal">true</span>;
     });
-    <span class="keyword">return</span> result.value;
   };</pre></div></div>
             
         </li>
@@ -722,21 +703,13 @@ See: <a href="https://bugs.webkit.org/show_bug.cgi?id=80797">https://bugs.webkit
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-35">&#182;</a>
               </div>
-              <p>Return the minimum element (or element-based computation).</p>
+              <p>Convenience version of a common use case of <code>find</code>: getting the first object
+containing specific <code>key:value</code> pairs.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  _.min = <span class="keyword">function</span>(obj, iterator, context) {
-    <span class="keyword">if</span> (!iterator &amp;&amp; _.isArray(obj) &amp;&amp; obj[<span class="number">0</span>] === +obj[<span class="number">0</span>] &amp;&amp; obj.length &lt; <span class="number">65535</span>) {
-      <span class="keyword">return</span> Math.min.apply(Math, obj);
-    }
-    <span class="keyword">if</span> (!iterator &amp;&amp; _.isEmpty(obj)) <span class="keyword">return</span> <span class="literal">Infinity</span>;
-    <span class="keyword">var</span> result = {computed : <span class="literal">Infinity</span>, value: <span class="literal">Infinity</span>};
-    each(obj, <span class="keyword">function</span>(value, index, list) {
-      <span class="keyword">var</span> computed = iterator ? iterator.call(context, value, index, list) : value;
-      computed &lt; result.computed &amp;&amp; (result = {value : value, computed : computed});
-    });
-    <span class="keyword">return</span> result.value;
+            <div class="content"><div class='highlight'><pre>  _.findWhere = <span class="function"><span class="keyword">function</span><span class="params">(obj, attrs)</span> {</span>
+    <span class="keyword">return</span> _.where(obj, attrs, <span class="literal">true</span>);
   };</pre></div></div>
             
         </li>
@@ -748,20 +721,23 @@ See: <a href="https://bugs.webkit.org/show_bug.cgi?id=80797">https://bugs.webkit
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-36">&#182;</a>
               </div>
-              <p>Shuffle an array.</p>
+              <p>Return the maximum element or (element-based computation).
+Can&#39;t optimize arrays of integers longer than 65,535 elements.
+See: <a href="https://bugs.webkit.org/show_bug.cgi?id=80797">https://bugs.webkit.org/show_bug.cgi?id=80797</a></p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  _.shuffle = <span class="keyword">function</span>(obj) {
-    <span class="keyword">var</span> rand;
-    <span class="keyword">var</span> index = <span class="number">0</span>;
-    <span class="keyword">var</span> shuffled = [];
-    each(obj, <span class="keyword">function</span>(value) {
-      rand = _.random(index++);
-      shuffled[index - <span class="number">1</span>] = shuffled[rand];
-      shuffled[rand] = value;
+            <div class="content"><div class='highlight'><pre>  _.max = <span class="function"><span class="keyword">function</span><span class="params">(obj, iterator, context)</span> {</span>
+    <span class="keyword">if</span> (!iterator &amp;&amp; _.isArray(obj) &amp;&amp; obj[<span class="number">0</span>] === +obj[<span class="number">0</span>] &amp;&amp; obj.length &lt; <span class="number">65535</span>) {
+      <span class="keyword">return</span> Math.max.apply(Math, obj);
+    }
+    <span class="keyword">if</span> (!iterator &amp;&amp; _.isEmpty(obj)) <span class="keyword">return</span> -<span class="literal">Infinity</span>;
+    <span class="keyword">var</span> result = {computed : -<span class="literal">Infinity</span>, value: -<span class="literal">Infinity</span>};
+    each(obj, <span class="function"><span class="keyword">function</span><span class="params">(value, index, list)</span> {</span>
+      <span class="keyword">var</span> computed = iterator ? iterator.call(context, value, index, list) : value;
+      computed &gt;= result.computed &amp;&amp; (result = {value : value, computed : computed});
     });
-    <span class="keyword">return</span> shuffled;
+    <span class="keyword">return</span> result.value;
   };</pre></div></div>
             
         </li>
@@ -773,12 +749,21 @@ See: <a href="https://bugs.webkit.org/show_bug.cgi?id=80797">https://bugs.webkit
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-37">&#182;</a>
               </div>
-              <p>An internal function to generate lookup iterators.</p>
+              <p>Return the minimum element (or element-based computation).</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  <span class="keyword">var</span> lookupIterator = <span class="keyword">function</span>(value) {
-    <span class="keyword">return</span> _.isFunction(value) ? value : <span class="keyword">function</span>(obj){ <span class="keyword">return</span> obj[value]; };
+            <div class="content"><div class='highlight'><pre>  _.min = <span class="function"><span class="keyword">function</span><span class="params">(obj, iterator, context)</span> {</span>
+    <span class="keyword">if</span> (!iterator &amp;&amp; _.isArray(obj) &amp;&amp; obj[<span class="number">0</span>] === +obj[<span class="number">0</span>] &amp;&amp; obj.length &lt; <span class="number">65535</span>) {
+      <span class="keyword">return</span> Math.min.apply(Math, obj);
+    }
+    <span class="keyword">if</span> (!iterator &amp;&amp; _.isEmpty(obj)) <span class="keyword">return</span> <span class="literal">Infinity</span>;
+    <span class="keyword">var</span> result = {computed : <span class="literal">Infinity</span>, value: <span class="literal">Infinity</span>};
+    each(obj, <span class="function"><span class="keyword">function</span><span class="params">(value, index, list)</span> {</span>
+      <span class="keyword">var</span> computed = iterator ? iterator.call(context, value, index, list) : value;
+      computed &lt; result.computed &amp;&amp; (result = {value : value, computed : computed});
+    });
+    <span class="keyword">return</span> result.value;
   };</pre></div></div>
             
         </li>
@@ -790,19 +775,61 @@ See: <a href="https://bugs.webkit.org/show_bug.cgi?id=80797">https://bugs.webkit
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-38">&#182;</a>
               </div>
+              <p>数组随机排序</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  _.shuffle = <span class="function"><span class="keyword">function</span><span class="params">(obj)</span> {</span>
+    <span class="keyword">var</span> rand;
+    <span class="keyword">var</span> index = <span class="number">0</span>;
+    <span class="keyword">var</span> shuffled = [];
+    each(obj, <span class="function"><span class="keyword">function</span><span class="params">(value)</span> {</span>
+      rand = _.random(index++);
+      shuffled[index - <span class="number">1</span>] = shuffled[rand];
+      shuffled[rand] = value;
+    });
+    <span class="keyword">return</span> shuffled;
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-39">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-39">&#182;</a>
+              </div>
+              <p>An internal function to generate lookup iterators.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="keyword">var</span> lookupIterator = <span class="function"><span class="keyword">function</span><span class="params">(value)</span> {</span>
+    <span class="keyword">return</span> _.isFunction(value) ? value : <span class="function"><span class="keyword">function</span><span class="params">(obj)</span>{</span> <span class="keyword">return</span> obj[value]; };
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-40">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-40">&#182;</a>
+              </div>
               <p>Sort the object&#39;s values by a criterion produced by an iterator.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  _.sortBy = <span class="keyword">function</span>(obj, value, context) {
+            <div class="content"><div class='highlight'><pre>  _.sortBy = <span class="function"><span class="keyword">function</span><span class="params">(obj, value, context)</span> {</span>
     <span class="keyword">var</span> iterator = lookupIterator(value);
-    <span class="keyword">return</span> _.pluck(_.map(obj, <span class="keyword">function</span>(value, index, list) {
+    <span class="keyword">return</span> _.pluck(_.map(obj, <span class="function"><span class="keyword">function</span><span class="params">(value, index, list)</span> {</span>
       <span class="keyword">return</span> {
         value : value,
         index : index,
         criteria : iterator.call(context, value, index, list)
       };
-    }).sort(<span class="keyword">function</span>(left, right) {
+    }).sort(<span class="function"><span class="keyword">function</span><span class="params">(left, right)</span> {</span>
       <span class="keyword">var</span> a = left.criteria;
       <span class="keyword">var</span> b = right.criteria;
       <span class="keyword">if</span> (a !== b) {
@@ -816,66 +843,24 @@ See: <a href="https://bugs.webkit.org/show_bug.cgi?id=80797">https://bugs.webkit
         </li>
         
         
-        <li id="section-39">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-39">&#182;</a>
-              </div>
-              <p>An internal function used for aggregate &quot;group by&quot; operations.</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>  <span class="keyword">var</span> group = <span class="keyword">function</span>(obj, value, context, behavior) {
-    <span class="keyword">var</span> result = {};
-    <span class="keyword">var</span> iterator = lookupIterator(value == <span class="literal">null</span> ? _.identity : value);
-    each(obj, <span class="keyword">function</span>(value, index) {
-      <span class="keyword">var</span> key = iterator.call(context, value, index, obj);
-      behavior(result, key, value);
-    });
-    <span class="keyword">return</span> result;
-  };</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-40">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-40">&#182;</a>
-              </div>
-              <p>Groups the object&#39;s values by a criterion. Pass either a string attribute
-to group by, or a function that returns the criterion.</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>  _.groupBy = <span class="keyword">function</span>(obj, value, context) {
-    <span class="keyword">return</span> group(obj, value, context, <span class="keyword">function</span>(result, key, value) {
-      (_.has(result, key) ? result[key] : (result[key] = [])).push(value);
-    });
-  };</pre></div></div>
-            
-        </li>
-        
-        
         <li id="section-41">
             <div class="annotation">
               
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-41">&#182;</a>
               </div>
-              <p>Counts instances of an object that group by a certain criterion. Pass
-either a string attribute to count by, or a function that returns the
-criterion.</p>
+              <p>An internal function used for aggregate &quot;group by&quot; operations.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  _.countBy = <span class="keyword">function</span>(obj, value, context) {
-    <span class="keyword">return</span> group(obj, value, context, <span class="keyword">function</span>(result, key) {
-      <span class="keyword">if</span> (!_.has(result, key)) result[key] = <span class="number">0</span>;
-      result[key]++;
+            <div class="content"><div class='highlight'><pre>  <span class="keyword">var</span> group = <span class="function"><span class="keyword">function</span><span class="params">(obj, value, context, behavior)</span> {</span>
+    <span class="keyword">var</span> result = {};
+    <span class="keyword">var</span> iterator = lookupIterator(value == <span class="literal">null</span> ? _.identity : value);
+    each(obj, <span class="function"><span class="keyword">function</span><span class="params">(value, index)</span> {</span>
+      <span class="keyword">var</span> key = iterator.call(context, value, index, obj);
+      behavior(result, key, value);
     });
+    <span class="keyword">return</span> result;
   };</pre></div></div>
             
         </li>
@@ -887,12 +872,54 @@ criterion.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-42">&#182;</a>
               </div>
+              <p>Groups the object&#39;s values by a criterion. Pass either a string attribute
+to group by, or a function that returns the criterion.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  _.groupBy = <span class="function"><span class="keyword">function</span><span class="params">(obj, value, context)</span> {</span>
+    <span class="keyword">return</span> group(obj, value, context, <span class="function"><span class="keyword">function</span><span class="params">(result, key, value)</span> {</span>
+      (_.has(result, key) ? result[key] : (result[key] = [])).push(value);
+    });
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-43">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-43">&#182;</a>
+              </div>
+              <p>Counts instances of an object that group by a certain criterion. Pass
+either a string attribute to count by, or a function that returns the
+criterion.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  _.countBy = <span class="function"><span class="keyword">function</span><span class="params">(obj, value, context)</span> {</span>
+    <span class="keyword">return</span> group(obj, value, context, <span class="function"><span class="keyword">function</span><span class="params">(result, key)</span> {</span>
+      <span class="keyword">if</span> (!_.has(result, key)) result[key] = <span class="number">0</span>;
+      result[key]++;
+    });
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-44">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-44">&#182;</a>
+              </div>
               <p>Use a comparator function to figure out the smallest index at which
 an object should be inserted so as to maintain order. Uses binary search.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  _.sortedIndex = <span class="keyword">function</span>(array, obj, iterator, context) {
+            <div class="content"><div class='highlight'><pre>  _.sortedIndex = <span class="function"><span class="keyword">function</span><span class="params">(array, obj, iterator, context)</span> {</span>
     iterator = iterator == <span class="literal">null</span> ? _.identity : lookupIterator(iterator);
     <span class="keyword">var</span> value = iterator.call(context, obj);
     <span class="keyword">var</span> low = <span class="number">0</span>, high = array.length;
@@ -906,53 +933,22 @@ an object should be inserted so as to maintain order. Uses binary search.</p>
         </li>
         
         
-        <li id="section-43">
+        <li id="section-45">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-43">&#182;</a>
+                <a class="pilcrow" href="#section-45">&#182;</a>
               </div>
-              <p>Safely convert anything iterable into a real, live array.</p>
+              <p>将obj（可能是null、数组、字符串、对象）转换成数组。</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  _.toArray = <span class="keyword">function</span>(obj) {
+            <div class="content"><div class='highlight'><pre>  _.toArray = <span class="function"><span class="keyword">function</span><span class="params">(obj)</span> {</span>
     <span class="keyword">if</span> (!obj) <span class="keyword">return</span> [];
     <span class="keyword">if</span> (_.isArray(obj)) <span class="keyword">return</span> slice.call(obj);
     <span class="keyword">if</span> (obj.length === +obj.length) <span class="keyword">return</span> _.map(obj, _.identity);
     <span class="keyword">return</span> _.values(obj);
   };</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-44">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-44">&#182;</a>
-              </div>
-              <p>返回对象的元素个数</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>  _.size = <span class="keyword">function</span>(obj) {
-    <span class="keyword">if</span> (obj == <span class="literal">null</span>) <span class="keyword">return</span> <span class="number">0</span>;
-    <span class="keyword">return</span> (obj.length === +obj.length) ? obj.length : _.keys(obj).length;
-  };</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-45">
-            <div class="annotation">
-              
-              <div class="pilwrap for-h2">
-                <a class="pilcrow" href="#section-45">&#182;</a>
-              </div>
-              <h2>数组相关函数</h2>
-
-            </div>
             
         </li>
         
@@ -963,15 +959,13 @@ an object should be inserted so as to maintain order. Uses binary search.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-46">&#182;</a>
               </div>
-              <p>first函数： 获取数组的第一个元素。若提供<strong>n</strong>参数，将返回数组中从0到n-1的元素。
-<strong>guard</strong>参数标志是否可与<code>_.map</code>函数共同使用。
-此函数亦称为<code>head</code>或者<code>take</code></p>
+              <p>返回对象的元素个数。</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  _.first = _.head = _.take = <span class="keyword">function</span>(array, n, guard) {
-    <span class="keyword">if</span> (array == <span class="literal">null</span>) <span class="keyword">return</span> <span class="keyword">void</span> <span class="number">0</span>;
-    <span class="keyword">return</span> (n != <span class="literal">null</span>) &amp;&amp; !guard ? slice.call(array, <span class="number">0</span>, n) : array[<span class="number">0</span>];
+            <div class="content"><div class='highlight'><pre>  _.size = <span class="function"><span class="keyword">function</span><span class="params">(obj)</span> {</span>
+    <span class="keyword">if</span> (obj == <span class="literal">null</span>) <span class="keyword">return</span> <span class="number">0</span>;
+    <span class="keyword">return</span> (obj.length === +obj.length) ? obj.length : _.keys(obj).length;
   };</pre></div></div>
             
         </li>
@@ -983,15 +977,9 @@ an object should be inserted so as to maintain order. Uses binary search.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-47">&#182;</a>
               </div>
-              <p>initial函数： 返回数组中除最后一个以外的所有元素。特别适用于arguments对象。
-若传递<strong>n</strong>变量，将返回最后N个意外的所有元素。
-<strong>guard</strong>参数标志是否可与<code>._map</code>共用</p>
+              <h2 id="-">数组相关函数</h2>
 
             </div>
-            
-            <div class="content"><div class='highlight'><pre>  _.initial = <span class="keyword">function</span>(array, n, guard) {
-    <span class="keyword">return</span> slice.call(array, <span class="number">0</span>, array.length - ((n == <span class="literal">null</span>) || guard ? <span class="number">1</span> : n));
-  };</pre></div></div>
             
         </li>
         
@@ -1002,19 +990,15 @@ an object should be inserted so as to maintain order. Uses binary search.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-48">&#182;</a>
               </div>
-              <p>last函数：返回数组的最后一个元素。
-若提供<strong>n</strong>变量，将返回最后的n个元素。
-<strong>guard</strong>参数标志此函数是否可与<code>_.map</code>共用。</p>
+              <p>first函数： 获取数组的第一个元素。若提供<strong>n</strong>参数，将返回数组中从0到n-1的元素。
+<strong>guard</strong>参数标志是否可与<code>_.map</code>函数共同使用。
+此函数亦称为<code>head</code>或者<code>take</code></p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  _.last = <span class="keyword">function</span>(array, n, guard) {
+            <div class="content"><div class='highlight'><pre>  _.first = _.head = _.take = <span class="function"><span class="keyword">function</span><span class="params">(array, n, guard)</span> {</span>
     <span class="keyword">if</span> (array == <span class="literal">null</span>) <span class="keyword">return</span> <span class="keyword">void</span> <span class="number">0</span>;
-    <span class="keyword">if</span> ((n != <span class="literal">null</span>) &amp;&amp; !guard) {
-      <span class="keyword">return</span> slice.call(array, Math.max(array.length - n, <span class="number">0</span>));
-    } <span class="keyword">else</span> {
-      <span class="keyword">return</span> array[array.length - <span class="number">1</span>];
-    }
+    <span class="keyword">return</span> (n != <span class="literal">null</span>) &amp;&amp; !guard ? slice.call(array, <span class="number">0</span>, n) : array[<span class="number">0</span>];
   };</pre></div></div>
             
         </li>
@@ -1026,15 +1010,14 @@ an object should be inserted so as to maintain order. Uses binary search.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-49">&#182;</a>
               </div>
-              <p>rest函数：返回除数组中第一个元素以外的所有元素。
-特别适用于arguments对象。
-若提供<strong>n</strong>变量，将返回除数组中前n个以外的元素。
-<strong>guard</strong>参数标志此函数是否可与<code>_.map</code>共用。</p>
+              <p>initial函数： 返回数组中除最后一个以外的所有元素。特别适用于arguments对象。
+若传递<strong>n</strong>变量，将返回最后N个意外的所有元素。
+<strong>guard</strong>参数标志是否可与<code>._map</code>共用</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  _.rest = _.tail = _.drop = <span class="keyword">function</span>(array, n, guard) {
-    <span class="keyword">return</span> slice.call(array, (n == <span class="literal">null</span>) || guard ? <span class="number">1</span> : n);
+            <div class="content"><div class='highlight'><pre>  _.initial = <span class="function"><span class="keyword">function</span><span class="params">(array, n, guard)</span> {</span>
+    <span class="keyword">return</span> slice.call(array, <span class="number">0</span>, array.length - ((n == <span class="literal">null</span>) || guard ? <span class="number">1</span> : n));
   };</pre></div></div>
             
         </li>
@@ -1046,12 +1029,19 @@ an object should be inserted so as to maintain order. Uses binary search.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-50">&#182;</a>
               </div>
-              <p>compact函数：过滤掉所有值等于false的元素</p>
+              <p>last函数：返回数组的最后一个元素。
+若提供<strong>n</strong>变量，将返回最后的n个元素。
+<strong>guard</strong>参数标志此函数是否可与<code>_.map</code>共用。</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  _.compact = <span class="keyword">function</span>(array) {
-    <span class="keyword">return</span> _.filter(array, _.identity);
+            <div class="content"><div class='highlight'><pre>  _.last = <span class="function"><span class="keyword">function</span><span class="params">(array, n, guard)</span> {</span>
+    <span class="keyword">if</span> (array == <span class="literal">null</span>) <span class="keyword">return</span> <span class="keyword">void</span> <span class="number">0</span>;
+    <span class="keyword">if</span> ((n != <span class="literal">null</span>) &amp;&amp; !guard) {
+      <span class="keyword">return</span> slice.call(array, Math.max(array.length - n, <span class="number">0</span>));
+    } <span class="keyword">else</span> {
+      <span class="keyword">return</span> array[array.length - <span class="number">1</span>];
+    }
   };</pre></div></div>
             
         </li>
@@ -1063,12 +1053,49 @@ an object should be inserted so as to maintain order. Uses binary search.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-51">&#182;</a>
               </div>
+              <p>rest函数：返回除数组中第一个元素以外的所有元素。
+特别适用于arguments对象。
+若提供<strong>n</strong>变量，将返回除数组中前n个以外的元素。
+<strong>guard</strong>参数标志此函数是否可与<code>_.map</code>共用。</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  _.rest = _.tail = _.drop = <span class="function"><span class="keyword">function</span><span class="params">(array, n, guard)</span> {</span>
+    <span class="keyword">return</span> slice.call(array, (n == <span class="literal">null</span>) || guard ? <span class="number">1</span> : n);
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-52">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-52">&#182;</a>
+              </div>
+              <p>compact函数：过滤掉所有值等于false的元素</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  _.compact = <span class="function"><span class="keyword">function</span><span class="params">(array)</span> {</span>
+    <span class="keyword">return</span> _.filter(array, _.identity);
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-53">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-53">&#182;</a>
+              </div>
               <p>内部函数flatten，将数组（可能是多维）转化成一维数组</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  <span class="keyword">var</span> flatten = <span class="keyword">function</span>(input, shallow, output) {
-        each(input, <span class="keyword">function</span>(value) {
+            <div class="content"><div class='highlight'><pre>  <span class="keyword">var</span> flatten = <span class="function"><span class="keyword">function</span><span class="params">(input, shallow, output)</span> {</span>
+        each(input, <span class="function"><span class="keyword">function</span><span class="params">(value)</span> {</span>
             <span class="keyword">if</span> (_.isArray(value)) {
                 shallow ? push.apply(output, value) : flatten(value, shallow, output);
             } <span class="keyword">else</span> {
@@ -1081,68 +1108,18 @@ an object should be inserted so as to maintain order. Uses binary search.</p>
         </li>
         
         
-        <li id="section-52">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-52">&#182;</a>
-              </div>
-              <p>flatten函数：将数组（可能包含数组）转化成一维数组</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>  _.flatten = <span class="keyword">function</span>(array, shallow) {
-    <span class="keyword">return</span> flatten(array, shallow, []);
-  };</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-53">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-53">&#182;</a>
-              </div>
-              <p>without函数：返回未包含指定值的数组。</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>  _.without = <span class="keyword">function</span>(array) {
-    <span class="keyword">return</span> _.difference(array, slice.call(arguments, <span class="number">1</span>));
-  };</pre></div></div>
-            
-        </li>
-        
-        
         <li id="section-54">
             <div class="annotation">
               
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-54">&#182;</a>
               </div>
-              <p>Produce a duplicate-free version of the array. If the array has already
-been sorted, you have the option of using a faster algorithm.
-Aliased as <code>unique</code>.</p>
+              <p>flatten函数：将数组（可能包含数组）转化成一维数组</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  _.uniq = _.unique = <span class="keyword">function</span>(array, isSorted, iterator, context) {
-    <span class="keyword">if</span> (_.isFunction(isSorted)) {
-      context = iterator;
-      iterator = isSorted;
-      isSorted = <span class="literal">false</span>;
-    }
-    <span class="keyword">var</span> initial = iterator ? _.map(array, iterator, context) : array;
-    <span class="keyword">var</span> results = [];
-    <span class="keyword">var</span> seen = [];
-    each(initial, <span class="keyword">function</span>(value, index) {
-      <span class="keyword">if</span> (isSorted ? (!index || seen[seen.length - <span class="number">1</span>] !== value) : !_.contains(seen, value)) {
-        seen.push(value);
-        results.push(array[index]);
-      }
-    });
-    <span class="keyword">return</span> results;
+            <div class="content"><div class='highlight'><pre>  _.flatten = <span class="function"><span class="keyword">function</span><span class="params">(array, shallow)</span> {</span>
+    <span class="keyword">return</span> flatten(array, shallow, []);
   };</pre></div></div>
             
         </li>
@@ -1154,13 +1131,12 @@ Aliased as <code>unique</code>.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-55">&#182;</a>
               </div>
-              <p>Produce an array that contains the union: each distinct element from all of
-the passed-in arrays.</p>
+              <p>without函数：返回未包含指定值的数组。</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  _.union = <span class="keyword">function</span>() {
-    <span class="keyword">return</span> _.uniq(concat.apply(ArrayProto, arguments));
+            <div class="content"><div class='highlight'><pre>  _.without = <span class="function"><span class="keyword">function</span><span class="params">(array)</span> {</span>
+    <span class="keyword">return</span> _.difference(array, slice.call(arguments, <span class="number">1</span>));
   };</pre></div></div>
             
         </li>
@@ -1172,18 +1148,28 @@ the passed-in arrays.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-56">&#182;</a>
               </div>
-              <p>Produce an array that contains every item shared between all the
-passed-in arrays.</p>
+              <p>Produce a duplicate-free version of the array. If the array has already
+been sorted, you have the option of using a faster algorithm.
+Aliased as <code>unique</code>.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  _.intersection = <span class="keyword">function</span>(array) {
-    <span class="keyword">var</span> rest = slice.call(arguments, <span class="number">1</span>);
-    <span class="keyword">return</span> _.filter(_.uniq(array), <span class="keyword">function</span>(item) {
-      <span class="keyword">return</span> _.every(rest, <span class="keyword">function</span>(other) {
-        <span class="keyword">return</span> _.indexOf(other, item) &gt;= <span class="number">0</span>;
-      });
+            <div class="content"><div class='highlight'><pre>  _.uniq = _.unique = <span class="function"><span class="keyword">function</span><span class="params">(array, isSorted, iterator, context)</span> {</span>
+    <span class="keyword">if</span> (_.isFunction(isSorted)) {
+      context = iterator;
+      iterator = isSorted;
+      isSorted = <span class="literal">false</span>;
+    }
+    <span class="keyword">var</span> initial = iterator ? _.map(array, iterator, context) : array;
+    <span class="keyword">var</span> results = [];
+    <span class="keyword">var</span> seen = [];
+    each(initial, <span class="function"><span class="keyword">function</span><span class="params">(value, index)</span> {</span>
+      <span class="keyword">if</span> (isSorted ? (!index || seen[seen.length - <span class="number">1</span>] !== value) : !_.contains(seen, value)) {
+        seen.push(value);
+        results.push(array[index]);
+      }
     });
+    <span class="keyword">return</span> results;
   };</pre></div></div>
             
         </li>
@@ -1195,14 +1181,13 @@ passed-in arrays.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-57">&#182;</a>
               </div>
-              <p>Take the difference between one array and a number of other arrays.
-Only the elements present in just the first array will remain.</p>
+              <p>Produce an array that contains the union: each distinct element from all of
+the passed-in arrays.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  _.difference = <span class="keyword">function</span>(array) {
-    <span class="keyword">var</span> rest = concat.apply(ArrayProto, slice.call(arguments, <span class="number">1</span>));
-    <span class="keyword">return</span> _.filter(array, <span class="keyword">function</span>(value){ <span class="keyword">return</span> !_.contains(rest, value); });
+            <div class="content"><div class='highlight'><pre>  _.union = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+    <span class="keyword">return</span> _.uniq(concat.apply(ArrayProto, arguments));
   };</pre></div></div>
             
         </li>
@@ -1214,12 +1199,55 @@ Only the elements present in just the first array will remain.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-58">&#182;</a>
               </div>
-              <p>Zip together multiple lists into a single array -- elements that share
-an index go together.</p>
+              <p>Produce an array that contains every item shared between all the
+passed-in arrays.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  _.zip = <span class="keyword">function</span>() {
+            <div class="content"><div class='highlight'><pre>  _.intersection = <span class="function"><span class="keyword">function</span><span class="params">(array)</span> {</span>
+    <span class="keyword">var</span> rest = slice.call(arguments, <span class="number">1</span>);
+    <span class="keyword">return</span> _.filter(_.uniq(array), <span class="function"><span class="keyword">function</span><span class="params">(item)</span> {</span>
+      <span class="keyword">return</span> _.every(rest, <span class="function"><span class="keyword">function</span><span class="params">(other)</span> {</span>
+        <span class="keyword">return</span> _.indexOf(other, item) &gt;= <span class="number">0</span>;
+      });
+    });
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-59">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-59">&#182;</a>
+              </div>
+              <p>Take the difference between one array and a number of other arrays.
+Only the elements present in just the first array will remain.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  _.difference = <span class="function"><span class="keyword">function</span><span class="params">(array)</span> {</span>
+    <span class="keyword">var</span> rest = concat.apply(ArrayProto, slice.call(arguments, <span class="number">1</span>));
+    <span class="keyword">return</span> _.filter(array, <span class="function"><span class="keyword">function</span><span class="params">(value)</span>{</span> <span class="keyword">return</span> !_.contains(rest, value); });
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-60">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-60">&#182;</a>
+              </div>
+              <p>将多个数组合并成一个数字，各数组中索引值相同的元素将合并在一起。
+例如：_.zip([1, 2, 3], [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]) =&gt; [[1, &quot;a&quot;], [2, &quot;b&quot;], [3, &quot;c&quot;]]。
+对于长度不同是数组，会出现<code>undefined</code>的元素。</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  _.zip = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
     <span class="keyword">var</span> args = slice.call(arguments);
     <span class="keyword">var</span> length = _.max(_.pluck(args, <span class="string">'length'</span>));
     <span class="keyword">var</span> results = <span class="keyword">new</span> Array(length);
@@ -1232,11 +1260,11 @@ an index go together.</p>
         </li>
         
         
-        <li id="section-59">
+        <li id="section-61">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-59">&#182;</a>
+                <a class="pilcrow" href="#section-61">&#182;</a>
               </div>
               <p>Converts lists into objects. Pass either a single array of <code>[key, value]</code>
 pairs, or two parallel arrays of the same length -- one of keys, and one of
@@ -1244,7 +1272,7 @@ the corresponding values.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  _.object = <span class="keyword">function</span>(list, values) {
+            <div class="content"><div class='highlight'><pre>  _.object = <span class="function"><span class="keyword">function</span><span class="params">(list, values)</span> {</span>
     <span class="keyword">if</span> (list == <span class="literal">null</span>) <span class="keyword">return</span> {};
     <span class="keyword">var</span> result = {};
     <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, l = list.length; i &lt; l; i++) {
@@ -1260,22 +1288,19 @@ the corresponding values.</p>
         </li>
         
         
-        <li id="section-60">
+        <li id="section-62">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-60">&#182;</a>
+                <a class="pilcrow" href="#section-62">&#182;</a>
               </div>
-              <p>If the browser doesn&#39;t supply us with indexOf (I&#39;m looking at you, <strong>MSIE</strong>),
-we need this function. Return the position of the first occurrence of an
-item in an array, or -1 if the item is not included in the array.
-Delegates to <strong>ECMAScript 5</strong>&#39;s native <code>indexOf</code> if available.
-If the array is large and already in sort order, pass <code>true</code>
-for <strong>isSorted</strong> to use binary search.</p>
+              <p>获取元素在数组中第一次出现的索引值。
+若<strong>ECMAScript 5</strong>原生的<code>indexOf</code>可用，将调用原生方法。
+<strong>isSorted</strong>表示对已排好序的大数组使用二分查找</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  _.indexOf = <span class="keyword">function</span>(array, item, isSorted) {
+            <div class="content"><div class='highlight'><pre>  _.indexOf = <span class="function"><span class="keyword">function</span><span class="params">(array, item, isSorted)</span> {</span>
     <span class="keyword">if</span> (array == <span class="literal">null</span>) <span class="keyword">return</span> -<span class="number">1</span>;
     <span class="keyword">var</span> i = <span class="number">0</span>, l = array.length;
     <span class="keyword">if</span> (isSorted) {
@@ -1294,17 +1319,18 @@ for <strong>isSorted</strong> to use binary search.</p>
         </li>
         
         
-        <li id="section-61">
+        <li id="section-63">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-61">&#182;</a>
+                <a class="pilcrow" href="#section-63">&#182;</a>
               </div>
-              <p>Delegates to <strong>ECMAScript 5</strong>&#39;s native <code>lastIndexOf</code> if available.</p>
+              <p>搜索元素在数组中最后一次出现的索引值。
+若<strong>ECMAScript 5</strong>原生的<code>lastIndexOf</code>可用，将调用原生方法。</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  _.lastIndexOf = <span class="keyword">function</span>(array, item, from) {
+            <div class="content"><div class='highlight'><pre>  _.lastIndexOf = <span class="function"><span class="keyword">function</span><span class="params">(array, item, from)</span> {</span>
     <span class="keyword">if</span> (array == <span class="literal">null</span>) <span class="keyword">return</span> -<span class="number">1</span>;
     <span class="keyword">var</span> hasIndex = from != <span class="literal">null</span>;
     <span class="keyword">if</span> (nativeLastIndexOf &amp;&amp; array.lastIndexOf === nativeLastIndexOf) {
@@ -1318,24 +1344,53 @@ for <strong>isSorted</strong> to use binary search.</p>
         </li>
         
         
-        <li id="section-62">
+        <li id="section-64">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-62">&#182;</a>
+                <a class="pilcrow" href="#section-64">&#182;</a>
               </div>
-              <p>Generate an integer Array containing an arithmetic progression. A port of
-the native Python <code>range()</code> function. See
+              <p>创建一个包含一等差数列的整型数组。Python <code>range()</code>的一个等价实现。见：
 <a href="http://docs.python.org/library/functions.html#range">the Python documentation</a>.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  _.range = <span class="keyword">function</span>(start, stop, step) {
-    <span class="keyword">if</span> (arguments.length &lt;= <span class="number">1</span>) {
+            <div class="content"><div class='highlight'><pre>  _.range = <span class="function"><span class="keyword">function</span><span class="params">(start, stop, step)</span> {</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-65">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-65">&#182;</a>
+              </div>
+              <p>若参数个数少于或者等于1时，起步值<code>start</code>设置为0
+    参数个数一个：终止值为此参数<code>start</code>
+    参数个数为0：终止值为0</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="keyword">if</span> (arguments.length &lt;= <span class="number">1</span>) {
       stop = start || <span class="number">0</span>;
       start = <span class="number">0</span>;
-    }
-    step = arguments[<span class="number">2</span>] || <span class="number">1</span>;
+    }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-66">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-66">&#182;</a>
+              </div>
+              <p>步长默认为1</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    step = arguments[<span class="number">2</span>] || <span class="number">1</span>;
 
     <span class="keyword">var</span> len = Math.max(Math.ceil((stop - start) / step), <span class="number">0</span>);
     <span class="keyword">var</span> idx = <span class="number">0</span>;
@@ -1352,52 +1407,51 @@ the native Python <code>range()</code> function. See
         </li>
         
         
-        <li id="section-63">
+        <li id="section-67">
             <div class="annotation">
               
-              <div class="pilwrap for-h2">
-                <a class="pilcrow" href="#section-63">&#182;</a>
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-67">&#182;</a>
               </div>
-              <h2>Function (ahem) Functions</h2>
+              <h2 id="function-ahem-functions">Function (ahem) Functions</h2>
 
             </div>
             
         </li>
         
         
-        <li id="section-64">
+        <li id="section-68">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-64">&#182;</a>
+                <a class="pilcrow" href="#section-68">&#182;</a>
               </div>
               <p>Reusable constructor function for prototype setting.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  <span class="keyword">var</span> ctor = <span class="keyword">function</span>(){};</pre></div></div>
+            <div class="content"><div class='highlight'><pre>  <span class="keyword">var</span> ctor = <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>};</pre></div></div>
             
         </li>
         
         
-        <li id="section-65">
+        <li id="section-69">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-65">&#182;</a>
+                <a class="pilcrow" href="#section-69">&#182;</a>
               </div>
-              <p>Create a function bound to a given object (assigning <code>this</code>, and arguments,
-optionally). Delegates to <strong>ECMAScript 5</strong>&#39;s native <code>Function.bind</code> if
-available.</p>
+              <p>bing函数：将函数绑定到指定对象上。
+若<strong>ECMAScript 5</strong>的<code>Function.bind</code>可用，将调用Function.bind。</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  _.bind = <span class="keyword">function</span>(func, context) {
+            <div class="content"><div class='highlight'><pre>  _.bind = <span class="function"><span class="keyword">function</span><span class="params">(func, context)</span> {</span>
     <span class="keyword">var</span> args, bound;
     <span class="keyword">if</span> (func.bind === nativeBind &amp;&amp; nativeBind) <span class="keyword">return</span> nativeBind.apply(func, slice.call(arguments, <span class="number">1</span>));
     <span class="keyword">if</span> (!_.isFunction(func)) <span class="keyword">throw</span> <span class="keyword">new</span> TypeError;
     args = slice.call(arguments, <span class="number">2</span>);
-    <span class="keyword">return</span> bound = <span class="keyword">function</span>() {
+    <span class="keyword">return</span> bound = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
       <span class="keyword">if</span> (!(<span class="keyword">this</span> <span class="keyword">instanceof</span> bound)) <span class="keyword">return</span> func.apply(context, args.concat(slice.call(arguments)));
       ctor.prototype = func.prototype;
       <span class="keyword">var</span> self = <span class="keyword">new</span> ctor;
@@ -1411,102 +1465,22 @@ available.</p>
         </li>
         
         
-        <li id="section-66">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-66">&#182;</a>
-              </div>
-              <p>Partially apply a function by creating a version that has had some of its
-arguments pre-filled, without changing its dynamic <code>this</code> context.</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>  _.partial = <span class="keyword">function</span>(func) {
-    <span class="keyword">var</span> args = slice.call(arguments, <span class="number">1</span>);
-    <span class="keyword">return</span> <span class="keyword">function</span>() {
-      <span class="keyword">return</span> func.apply(<span class="keyword">this</span>, args.concat(slice.call(arguments)));
-    };
-  };</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-67">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-67">&#182;</a>
-              </div>
-              <p>Bind all of an object&#39;s methods to that object. Useful for ensuring that
-all callbacks defined on an object belong to it.</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>  _.bindAll = <span class="keyword">function</span>(obj) {
-    <span class="keyword">var</span> funcs = slice.call(arguments, <span class="number">1</span>);
-    <span class="keyword">if</span> (funcs.length === <span class="number">0</span>) <span class="keyword">throw</span> <span class="keyword">new</span> Error(<span class="string">"bindAll must be passed function names"</span>);
-    each(funcs, <span class="keyword">function</span>(f) { obj[f] = _.bind(obj[f], obj); });
-    <span class="keyword">return</span> obj;
-  };</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-68">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-68">&#182;</a>
-              </div>
-              <p>Memoize an expensive function by storing its results.</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>  _.memoize = <span class="keyword">function</span>(func, hasher) {
-    <span class="keyword">var</span> memo = {};
-    hasher || (hasher = _.identity);
-    <span class="keyword">return</span> <span class="keyword">function</span>() {
-      <span class="keyword">var</span> key = hasher.apply(<span class="keyword">this</span>, arguments);
-      <span class="keyword">return</span> _.has(memo, key) ? memo[key] : (memo[key] = func.apply(<span class="keyword">this</span>, arguments));
-    };
-  };</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-69">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-69">&#182;</a>
-              </div>
-              <p>Delays a function for the given number of milliseconds, and then calls
-it with the arguments supplied.</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>  _.delay = <span class="keyword">function</span>(func, wait) {
-    <span class="keyword">var</span> args = slice.call(arguments, <span class="number">2</span>);
-    <span class="keyword">return</span> setTimeout(<span class="keyword">function</span>(){ <span class="keyword">return</span> func.apply(<span class="literal">null</span>, args); }, wait);
-  };</pre></div></div>
-            
-        </li>
-        
-        
         <li id="section-70">
             <div class="annotation">
               
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-70">&#182;</a>
               </div>
-              <p>Defers a function, scheduling it to run after the current call stack has
-cleared.</p>
+              <p>Partially apply a function by creating a version that has had some of its
+arguments pre-filled, without changing its dynamic <code>this</code> context.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  _.defer = <span class="keyword">function</span>(func) {
-    <span class="keyword">return</span> _.delay.apply(_, [func, <span class="number">1</span>].concat(slice.call(arguments, <span class="number">1</span>)));
+            <div class="content"><div class='highlight'><pre>  _.partial = <span class="function"><span class="keyword">function</span><span class="params">(func)</span> {</span>
+    <span class="keyword">var</span> args = slice.call(arguments, <span class="number">1</span>);
+    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+      <span class="keyword">return</span> func.apply(<span class="keyword">this</span>, args.concat(slice.call(arguments)));
+    };
   };</pre></div></div>
             
         </li>
@@ -1518,20 +1492,99 @@ cleared.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-71">&#182;</a>
               </div>
+              <p>Bind all of an object&#39;s methods to that object. Useful for ensuring that
+all callbacks defined on an object belong to it.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  _.bindAll = <span class="function"><span class="keyword">function</span><span class="params">(obj)</span> {</span>
+    <span class="keyword">var</span> funcs = slice.call(arguments, <span class="number">1</span>);
+    <span class="keyword">if</span> (funcs.length === <span class="number">0</span>) <span class="keyword">throw</span> <span class="keyword">new</span> Error(<span class="string">"bindAll must be passed function names"</span>);
+    each(funcs, <span class="function"><span class="keyword">function</span><span class="params">(f)</span> {</span> obj[f] = _.bind(obj[f], obj); });
+    <span class="keyword">return</span> obj;
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-72">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-72">&#182;</a>
+              </div>
+              <p>Memoize an expensive function by storing its results.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  _.memoize = <span class="function"><span class="keyword">function</span><span class="params">(func, hasher)</span> {</span>
+    <span class="keyword">var</span> memo = {};
+    hasher || (hasher = _.identity);
+    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+      <span class="keyword">var</span> key = hasher.apply(<span class="keyword">this</span>, arguments);
+      <span class="keyword">return</span> _.has(memo, key) ? memo[key] : (memo[key] = func.apply(<span class="keyword">this</span>, arguments));
+    };
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-73">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-73">&#182;</a>
+              </div>
+              <p>delay函数： 延迟wait毫秒之后执行func。</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  _.delay = <span class="function"><span class="keyword">function</span><span class="params">(func, wait)</span> {</span>
+    <span class="keyword">var</span> args = slice.call(arguments, <span class="number">2</span>);
+    <span class="keyword">return</span> setTimeout(<span class="function"><span class="keyword">function</span><span class="params">()</span>{</span> <span class="keyword">return</span> func.apply(<span class="literal">null</span>, args); }, wait);
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-74">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-74">&#182;</a>
+              </div>
+              <p>Defers a function, scheduling it to run after the current call stack has
+cleared.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  _.defer = <span class="function"><span class="keyword">function</span><span class="params">(func)</span> {</span>
+    <span class="keyword">return</span> _.delay.apply(_, [func, <span class="number">1</span>].concat(slice.call(arguments, <span class="number">1</span>)));
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-75">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-75">&#182;</a>
+              </div>
               <p>Returns a function, that, when invoked, will only be triggered at most once
 during a given window of time.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  _.throttle = <span class="keyword">function</span>(func, wait, immediate) {
+            <div class="content"><div class='highlight'><pre>  _.throttle = <span class="function"><span class="keyword">function</span><span class="params">(func, wait, immediate)</span> {</span>
     <span class="keyword">var</span> context, args, timeout, result;
     <span class="keyword">var</span> previous = <span class="number">0</span>;
-    <span class="keyword">var</span> later = <span class="keyword">function</span>() {
+    <span class="keyword">var</span> later = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
       previous = <span class="keyword">new</span> Date;
       timeout = <span class="literal">null</span>;
       result = func.apply(context, args);
     };
-    <span class="keyword">return</span> <span class="keyword">function</span>() {
+    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
       <span class="keyword">var</span> now = <span class="keyword">new</span> Date;
       <span class="keyword">if</span> (!previous &amp;&amp; immediate === <span class="literal">false</span>) previous = now;
       <span class="keyword">var</span> remaining = wait - (now - previous);
@@ -1552,11 +1605,11 @@ during a given window of time.</p>
         </li>
         
         
-        <li id="section-72">
+        <li id="section-76">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-72">&#182;</a>
+                <a class="pilcrow" href="#section-76">&#182;</a>
               </div>
               <p>Returns a function, that, as long as it continues to be invoked, will not
 be triggered. The function will be called after it stops being called for
@@ -1565,11 +1618,11 @@ leading edge, instead of the trailing.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  _.debounce = <span class="keyword">function</span>(func, wait, immediate) {
+            <div class="content"><div class='highlight'><pre>  _.debounce = <span class="function"><span class="keyword">function</span><span class="params">(func, wait, immediate)</span> {</span>
     <span class="keyword">var</span> timeout, result;
-    <span class="keyword">return</span> <span class="keyword">function</span>() {
+    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
       <span class="keyword">var</span> context = <span class="keyword">this</span>, args = arguments;
-      <span class="keyword">var</span> later = <span class="keyword">function</span>() {
+      <span class="keyword">var</span> later = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
         timeout = <span class="literal">null</span>;
         <span class="keyword">if</span> (!immediate) result = func.apply(context, args);
       };
@@ -1584,20 +1637,20 @@ leading edge, instead of the trailing.</p>
         </li>
         
         
-        <li id="section-73">
+        <li id="section-77">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-73">&#182;</a>
+                <a class="pilcrow" href="#section-77">&#182;</a>
               </div>
               <p>Returns a function that will be executed at most one time, no matter how
 often you call it. Useful for lazy initialization.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  _.once = <span class="keyword">function</span>(func) {
+            <div class="content"><div class='highlight'><pre>  _.once = <span class="function"><span class="keyword">function</span><span class="params">(func)</span> {</span>
     <span class="keyword">var</span> ran = <span class="literal">false</span>, memo;
-    <span class="keyword">return</span> <span class="keyword">function</span>() {
+    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
       <span class="keyword">if</span> (ran) <span class="keyword">return</span> memo;
       ran = <span class="literal">true</span>;
       memo = func.apply(<span class="keyword">this</span>, arguments);
@@ -1609,11 +1662,11 @@ often you call it. Useful for lazy initialization.</p>
         </li>
         
         
-        <li id="section-74">
+        <li id="section-78">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-74">&#182;</a>
+                <a class="pilcrow" href="#section-78">&#182;</a>
               </div>
               <p>Returns the first function passed as an argument to the second,
 allowing you to adjust arguments, run code before and after, and
@@ -1621,93 +1674,12 @@ conditionally execute the original function.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  _.wrap = <span class="keyword">function</span>(func, wrapper) {
-    <span class="keyword">return</span> <span class="keyword">function</span>() {
+            <div class="content"><div class='highlight'><pre>  _.wrap = <span class="function"><span class="keyword">function</span><span class="params">(func, wrapper)</span> {</span>
+    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
       <span class="keyword">var</span> args = [func];
       push.apply(args, arguments);
       <span class="keyword">return</span> wrapper.apply(<span class="keyword">this</span>, args);
     };
-  };</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-75">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-75">&#182;</a>
-              </div>
-              <p>Returns a function that is the composition of a list of functions, each
-consuming the return value of the function that follows.</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>  _.compose = <span class="keyword">function</span>() {
-    <span class="keyword">var</span> funcs = arguments;
-    <span class="keyword">return</span> <span class="keyword">function</span>() {
-      <span class="keyword">var</span> args = arguments;
-      <span class="keyword">for</span> (<span class="keyword">var</span> i = funcs.length - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) {
-        args = [funcs[i].apply(<span class="keyword">this</span>, args)];
-      }
-      <span class="keyword">return</span> args[<span class="number">0</span>];
-    };
-  };</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-76">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-76">&#182;</a>
-              </div>
-              <p>Returns a function that will only be executed after being called N times.</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>  _.after = <span class="keyword">function</span>(times, func) {
-    <span class="keyword">if</span> (times &lt;= <span class="number">0</span>) <span class="keyword">return</span> func();
-    <span class="keyword">return</span> <span class="keyword">function</span>() {
-      <span class="keyword">if</span> (--times &lt; <span class="number">1</span>) {
-        <span class="keyword">return</span> func.apply(<span class="keyword">this</span>, arguments);
-      }
-    };
-  };</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-77">
-            <div class="annotation">
-              
-              <div class="pilwrap for-h2">
-                <a class="pilcrow" href="#section-77">&#182;</a>
-              </div>
-              <h2>对象相关的函数</h2>
-
-            </div>
-            
-        </li>
-        
-        
-        <li id="section-78">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-78">&#182;</a>
-              </div>
-              <p>keys函数： 返回对象所有的键。
-若<strong>ECMAScript 5</strong>的<code>Object.keys</code>可用，将调用Object.keys.</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>  _.keys = nativeKeys || <span class="keyword">function</span>(obj) {
-    <span class="keyword">if</span> (obj !== Object(obj)) <span class="keyword">throw</span> <span class="keyword">new</span> TypeError(<span class="string">'Invalid object'</span>);
-    <span class="keyword">var</span> keys = [];
-    <span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> obj) <span class="keyword">if</span> (_.has(obj, key)) keys[keys.length] = key;
-    <span class="keyword">return</span> keys;
   };</pre></div></div>
             
         </li>
@@ -1719,14 +1691,20 @@ consuming the return value of the function that follows.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-79">&#182;</a>
               </div>
-              <p>values函数：返回对象所有键对应的值</p>
+              <p>Returns a function that is the composition of a list of functions, each
+consuming the return value of the function that follows.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  _.values = <span class="keyword">function</span>(obj) {
-    <span class="keyword">var</span> values = [];
-    <span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> obj) <span class="keyword">if</span> (_.has(obj, key)) values.push(obj[key]);
-    <span class="keyword">return</span> values;
+            <div class="content"><div class='highlight'><pre>  _.compose = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+    <span class="keyword">var</span> funcs = arguments;
+    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+      <span class="keyword">var</span> args = arguments;
+      <span class="keyword">for</span> (<span class="keyword">var</span> i = funcs.length - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) {
+        args = [funcs[i].apply(<span class="keyword">this</span>, args)];
+      }
+      <span class="keyword">return</span> args[<span class="number">0</span>];
+    };
   };</pre></div></div>
             
         </li>
@@ -1738,14 +1716,17 @@ consuming the return value of the function that follows.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-80">&#182;</a>
               </div>
-              <p>paris函数：返回包含对象转换成<code>[key, value]</code>的数组</p>
+              <p>Returns a function that will only be executed after being called N times.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  _.pairs = <span class="keyword">function</span>(obj) {
-    <span class="keyword">var</span> pairs = [];
-    <span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> obj) <span class="keyword">if</span> (_.has(obj, key)) pairs.push([key, obj[key]]);
-    <span class="keyword">return</span> pairs;
+            <div class="content"><div class='highlight'><pre>  _.after = <span class="function"><span class="keyword">function</span><span class="params">(times, func)</span> {</span>
+    <span class="keyword">if</span> (times &lt;= <span class="number">0</span>) <span class="keyword">return</span> func();
+    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+      <span class="keyword">if</span> (--times &lt; <span class="number">1</span>) {
+        <span class="keyword">return</span> func.apply(<span class="keyword">this</span>, arguments);
+      }
+    };
   };</pre></div></div>
             
         </li>
@@ -1757,15 +1738,9 @@ consuming the return value of the function that follows.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-81">&#182;</a>
               </div>
-              <p>Invert the keys and values of an object. The values must be serializable.</p>
+              <h2 id="-">对象相关的函数</h2>
 
             </div>
-            
-            <div class="content"><div class='highlight'><pre>  _.invert = <span class="keyword">function</span>(obj) {
-    <span class="keyword">var</span> result = {};
-    <span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> obj) <span class="keyword">if</span> (_.has(obj, key)) result[obj[key]] = key;
-    <span class="keyword">return</span> result;
-  };</pre></div></div>
             
         </li>
         
@@ -1776,17 +1751,16 @@ consuming the return value of the function that follows.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-82">&#182;</a>
               </div>
-              <p>functions函数：返回对象的所有方法（已排序）
-此函数亦称为<code>methods</code></p>
+              <p>keys函数： 返回对象所有的键。
+若<strong>ECMAScript 5</strong>的<code>Object.keys</code>可用，将调用Object.keys.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  _.functions = _.methods = <span class="keyword">function</span>(obj) {
-    <span class="keyword">var</span> names = [];
-    <span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> obj) {
-      <span class="keyword">if</span> (_.isFunction(obj[key])) names.push(key);
-    }
-    <span class="keyword">return</span> names.sort();
+            <div class="content"><div class='highlight'><pre>  _.keys = nativeKeys || <span class="function"><span class="keyword">function</span><span class="params">(obj)</span> {</span>
+    <span class="keyword">if</span> (obj !== Object(obj)) <span class="keyword">throw</span> <span class="keyword">new</span> TypeError(<span class="string">'Invalid object'</span>);
+    <span class="keyword">var</span> keys = [];
+    <span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> obj) <span class="keyword">if</span> (_.has(obj, key)) keys[keys.length] = key;
+    <span class="keyword">return</span> keys;
   };</pre></div></div>
             
         </li>
@@ -1798,12 +1772,91 @@ consuming the return value of the function that follows.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-83">&#182;</a>
               </div>
+              <p>values函数：返回对象所有键对应的值</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  _.values = <span class="function"><span class="keyword">function</span><span class="params">(obj)</span> {</span>
+    <span class="keyword">var</span> values = [];
+    <span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> obj) <span class="keyword">if</span> (_.has(obj, key)) values.push(obj[key]);
+    <span class="keyword">return</span> values;
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-84">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-84">&#182;</a>
+              </div>
+              <p>paris函数：返回包含对象转换成<code>[key, value]</code>的数组</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  _.pairs = <span class="function"><span class="keyword">function</span><span class="params">(obj)</span> {</span>
+    <span class="keyword">var</span> pairs = [];
+    <span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> obj) <span class="keyword">if</span> (_.has(obj, key)) pairs.push([key, obj[key]]);
+    <span class="keyword">return</span> pairs;
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-85">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-85">&#182;</a>
+              </div>
+              <p>转换对象的键值对。</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  _.invert = <span class="function"><span class="keyword">function</span><span class="params">(obj)</span> {</span>
+    <span class="keyword">var</span> result = {};
+    <span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> obj) <span class="keyword">if</span> (_.has(obj, key)) result[obj[key]] = key;
+    <span class="keyword">return</span> result;
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-86">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-86">&#182;</a>
+              </div>
+              <p>functions函数：返回对象的所有方法（已排序）
+此函数亦称为<code>methods</code></p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  _.functions = _.methods = <span class="function"><span class="keyword">function</span><span class="params">(obj)</span> {</span>
+    <span class="keyword">var</span> names = [];
+    <span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> obj) {
+      <span class="keyword">if</span> (_.isFunction(obj[key])) names.push(key);
+    }
+    <span class="keyword">return</span> names.sort();
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-87">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-87">&#182;</a>
+              </div>
               <p>extend函数：扩展给定的对象。可接收多个参数。</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  _.extend = <span class="keyword">function</span>(obj) {
-    each(slice.call(arguments, <span class="number">1</span>), <span class="keyword">function</span>(source) {
+            <div class="content"><div class='highlight'><pre>  _.extend = <span class="function"><span class="keyword">function</span><span class="params">(obj)</span> {</span>
+    each(slice.call(arguments, <span class="number">1</span>), <span class="function"><span class="keyword">function</span><span class="params">(source)</span> {</span>
       <span class="keyword">if</span> (source) {
         <span class="keyword">for</span> (<span class="keyword">var</span> prop <span class="keyword">in</span> source) {
           obj[prop] = source[prop];
@@ -1816,20 +1869,20 @@ consuming the return value of the function that follows.</p>
         </li>
         
         
-        <li id="section-84">
+        <li id="section-88">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-84">&#182;</a>
+                <a class="pilcrow" href="#section-88">&#182;</a>
               </div>
               <p>pick函数：返回一个新对象，包含参数所给定键的键值对</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  _.pick = <span class="keyword">function</span>(obj) {
+            <div class="content"><div class='highlight'><pre>  _.pick = <span class="function"><span class="keyword">function</span><span class="params">(obj)</span> {</span>
     <span class="keyword">var</span> copy = {};
     <span class="keyword">var</span> keys = concat.apply(ArrayProto, slice.call(arguments, <span class="number">1</span>));
-    each(keys, <span class="keyword">function</span>(key) {
+    each(keys, <span class="function"><span class="keyword">function</span><span class="params">(key)</span> {</span>
       <span class="keyword">if</span> (key <span class="keyword">in</span> obj) copy[key] = obj[key];
     });
     <span class="keyword">return</span> copy;
@@ -1838,17 +1891,17 @@ consuming the return value of the function that follows.</p>
         </li>
         
         
-        <li id="section-85">
+        <li id="section-89">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-85">&#182;</a>
+                <a class="pilcrow" href="#section-89">&#182;</a>
               </div>
               <p>omit函数：返回一个新对象，包含参数指定键以外的键值对</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  _.omit = <span class="keyword">function</span>(obj) {
+            <div class="content"><div class='highlight'><pre>  _.omit = <span class="function"><span class="keyword">function</span><span class="params">(obj)</span> {</span>
     <span class="keyword">var</span> copy = {};
     <span class="keyword">var</span> keys = concat.apply(ArrayProto, slice.call(arguments, <span class="number">1</span>));
     <span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> obj) {
@@ -1860,18 +1913,18 @@ consuming the return value of the function that follows.</p>
         </li>
         
         
-        <li id="section-86">
+        <li id="section-90">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-86">&#182;</a>
+                <a class="pilcrow" href="#section-90">&#182;</a>
               </div>
               <p>defaults函数：给指定对象填充默认值。</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  _.defaults = <span class="keyword">function</span>(obj) {
-    each(slice.call(arguments, <span class="number">1</span>), <span class="keyword">function</span>(source) {
+            <div class="content"><div class='highlight'><pre>  _.defaults = <span class="function"><span class="keyword">function</span><span class="params">(obj)</span> {</span>
+    each(slice.call(arguments, <span class="number">1</span>), <span class="function"><span class="keyword">function</span><span class="params">(source)</span> {</span>
       <span class="keyword">if</span> (source) {
         <span class="keyword">for</span> (<span class="keyword">var</span> prop <span class="keyword">in</span> source) {
           <span class="keyword">if</span> (obj[prop] === <span class="keyword">void</span> <span class="number">0</span>) obj[prop] = source[prop];
@@ -1884,17 +1937,17 @@ consuming the return value of the function that follows.</p>
         </li>
         
         
-        <li id="section-87">
+        <li id="section-91">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-87">&#182;</a>
+                <a class="pilcrow" href="#section-91">&#182;</a>
               </div>
-              <p>Create a (shallow-cloned) duplicate of an object.</p>
+              <p>浅复制 <code>obj</code>。obj若非对象，返回<code>obj</code>。</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  _.clone = <span class="keyword">function</span>(obj) {
+            <div class="content"><div class='highlight'><pre>  _.clone = <span class="function"><span class="keyword">function</span><span class="params">(obj)</span> {</span>
     <span class="keyword">if</span> (!_.isObject(obj)) <span class="keyword">return</span> obj;
     <span class="keyword">return</span> _.isArray(obj) ? obj.slice() : _.extend({}, obj);
   };</pre></div></div>
@@ -1902,11 +1955,11 @@ consuming the return value of the function that follows.</p>
         </li>
         
         
-        <li id="section-88">
+        <li id="section-92">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-88">&#182;</a>
+                <a class="pilcrow" href="#section-92">&#182;</a>
               </div>
               <p>Invokes interceptor with the obj, and then returns obj.
 The primary purpose of this method is to &quot;tap into&quot; a method chain, in
@@ -1914,7 +1967,7 @@ order to perform operations on intermediate results within the chain.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  _.tap = <span class="keyword">function</span>(obj, interceptor) {
+            <div class="content"><div class='highlight'><pre>  _.tap = <span class="function"><span class="keyword">function</span><span class="params">(obj, interceptor)</span> {</span>
     interceptor(obj);
     <span class="keyword">return</span> obj;
   };</pre></div></div>
@@ -1922,26 +1975,26 @@ order to perform operations on intermediate results within the chain.</p>
         </li>
         
         
-        <li id="section-89">
+        <li id="section-93">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-89">&#182;</a>
+                <a class="pilcrow" href="#section-93">&#182;</a>
               </div>
               <p>Internal recursive comparison function for <code>isEqual</code>.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  <span class="keyword">var</span> eq = <span class="keyword">function</span>(a, b, aStack, bStack) {</pre></div></div>
+            <div class="content"><div class='highlight'><pre>  <span class="keyword">var</span> eq = <span class="function"><span class="keyword">function</span><span class="params">(a, b, aStack, bStack)</span> {</span></pre></div></div>
             
         </li>
         
         
-        <li id="section-90">
+        <li id="section-94">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-90">&#182;</a>
+                <a class="pilcrow" href="#section-94">&#182;</a>
               </div>
               <p>Identical objects are equal. <code>0 === -0</code>, but they aren&#39;t identical.
 See the Harmony <code>egal</code> proposal: <a href="http://wiki.ecmascript.org/doku.php?id=harmony:egal">http://wiki.ecmascript.org/doku.php?id=harmony:egal</a>.</p>
@@ -1953,11 +2006,11 @@ See the Harmony <code>egal</code> proposal: <a href="http://wiki.ecmascript.org/
         </li>
         
         
-        <li id="section-91">
+        <li id="section-95">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-91">&#182;</a>
+                <a class="pilcrow" href="#section-95">&#182;</a>
               </div>
               <p>A strict comparison is necessary because <code>null == undefined</code>.</p>
 
@@ -1968,11 +2021,11 @@ See the Harmony <code>egal</code> proposal: <a href="http://wiki.ecmascript.org/
         </li>
         
         
-        <li id="section-92">
+        <li id="section-96">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-92">&#182;</a>
+                <a class="pilcrow" href="#section-96">&#182;</a>
               </div>
               <p>Unwrap any wrapped objects.</p>
 
@@ -1984,11 +2037,11 @@ See the Harmony <code>egal</code> proposal: <a href="http://wiki.ecmascript.org/
         </li>
         
         
-        <li id="section-93">
+        <li id="section-97">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-93">&#182;</a>
+                <a class="pilcrow" href="#section-97">&#182;</a>
               </div>
               <p>Compare <code>[[Class]]</code> names.</p>
 
@@ -2001,11 +2054,11 @@ See the Harmony <code>egal</code> proposal: <a href="http://wiki.ecmascript.org/
         </li>
         
         
-        <li id="section-94">
+        <li id="section-98">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-94">&#182;</a>
+                <a class="pilcrow" href="#section-98">&#182;</a>
               </div>
               <p>Strings, numbers, dates, and booleans are compared by value.</p>
 
@@ -2016,11 +2069,11 @@ See the Harmony <code>egal</code> proposal: <a href="http://wiki.ecmascript.org/
         </li>
         
         
-        <li id="section-95">
+        <li id="section-99">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-95">&#182;</a>
+                <a class="pilcrow" href="#section-99">&#182;</a>
               </div>
               <p>Primitives and their corresponding object wrappers are equivalent; thus, <code>&quot;5&quot;</code> is
 equivalent to <code>new String(&quot;5&quot;)</code>.</p>
@@ -2033,11 +2086,11 @@ equivalent to <code>new String(&quot;5&quot;)</code>.</p>
         </li>
         
         
-        <li id="section-96">
+        <li id="section-100">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-96">&#182;</a>
+                <a class="pilcrow" href="#section-100">&#182;</a>
               </div>
               <p><code>NaN</code>s are equivalent, but non-reflexive. An <code>egal</code> comparison is performed for
 other numeric values.</p>
@@ -2051,11 +2104,11 @@ other numeric values.</p>
         </li>
         
         
-        <li id="section-97">
+        <li id="section-101">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-97">&#182;</a>
+                <a class="pilcrow" href="#section-101">&#182;</a>
               </div>
               <p>Coerce dates and booleans to numeric primitive values. Dates are compared by their
 millisecond representations. Note that invalid dates with millisecond representations
@@ -2068,11 +2121,11 @@ of <code>NaN</code> are not equivalent.</p>
         </li>
         
         
-        <li id="section-98">
+        <li id="section-102">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-98">&#182;</a>
+                <a class="pilcrow" href="#section-102">&#182;</a>
               </div>
               <p>RegExps are compared by their source patterns and flags.</p>
 
@@ -2089,11 +2142,11 @@ of <code>NaN</code> are not equivalent.</p>
         </li>
         
         
-        <li id="section-99">
+        <li id="section-103">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-99">&#182;</a>
+                <a class="pilcrow" href="#section-103">&#182;</a>
               </div>
               <p>Assume equality for cyclic structures. The algorithm for detecting cyclic
 structures is adapted from ES 5.1 section 15.12.3, abstract operation <code>JO</code>.</p>
@@ -2106,11 +2159,11 @@ structures is adapted from ES 5.1 section 15.12.3, abstract operation <code>JO</
         </li>
         
         
-        <li id="section-100">
+        <li id="section-104">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-100">&#182;</a>
+                <a class="pilcrow" href="#section-104">&#182;</a>
               </div>
               <p>Linear search. Performance is inversely proportional to the number of
 unique nested structures.</p>
@@ -2123,11 +2176,11 @@ unique nested structures.</p>
         </li>
         
         
-        <li id="section-101">
+        <li id="section-105">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-101">&#182;</a>
+                <a class="pilcrow" href="#section-105">&#182;</a>
               </div>
               <p>Add the first object to the stack of traversed objects.</p>
 
@@ -2140,11 +2193,11 @@ unique nested structures.</p>
         </li>
         
         
-        <li id="section-102">
+        <li id="section-106">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-102">&#182;</a>
+                <a class="pilcrow" href="#section-106">&#182;</a>
               </div>
               <p>Recursively compare objects and arrays.</p>
 
@@ -2155,11 +2208,11 @@ unique nested structures.</p>
         </li>
         
         
-        <li id="section-103">
+        <li id="section-107">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-103">&#182;</a>
+                <a class="pilcrow" href="#section-107">&#182;</a>
               </div>
               <p>Compare array lengths to determine if a deep comparison is necessary.</p>
 
@@ -2172,11 +2225,11 @@ unique nested structures.</p>
         </li>
         
         
-        <li id="section-104">
+        <li id="section-108">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-104">&#182;</a>
+                <a class="pilcrow" href="#section-108">&#182;</a>
               </div>
               <p>Deep compare the contents, ignoring non-numeric properties.</p>
 
@@ -2191,11 +2244,11 @@ unique nested structures.</p>
         </li>
         
         
-        <li id="section-105">
+        <li id="section-109">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-105">&#182;</a>
+                <a class="pilcrow" href="#section-109">&#182;</a>
               </div>
               <p>Objects with different constructors are not equivalent, but <code>Object</code>s
 from different frames are.</p>
@@ -2211,11 +2264,11 @@ from different frames are.</p>
         </li>
         
         
-        <li id="section-106">
+        <li id="section-110">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-106">&#182;</a>
+                <a class="pilcrow" href="#section-110">&#182;</a>
               </div>
               <p>Deep compare objects.</p>
 
@@ -2227,11 +2280,11 @@ from different frames are.</p>
         </li>
         
         
-        <li id="section-107">
+        <li id="section-111">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-107">&#182;</a>
+                <a class="pilcrow" href="#section-111">&#182;</a>
               </div>
               <p>Count the expected number of properties.</p>
 
@@ -2242,11 +2295,11 @@ from different frames are.</p>
         </li>
         
         
-        <li id="section-108">
+        <li id="section-112">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-108">&#182;</a>
+                <a class="pilcrow" href="#section-112">&#182;</a>
               </div>
               <p>Deep compare each member.</p>
 
@@ -2259,11 +2312,11 @@ from different frames are.</p>
         </li>
         
         
-        <li id="section-109">
+        <li id="section-113">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-109">&#182;</a>
+                <a class="pilcrow" href="#section-113">&#182;</a>
               </div>
               <p>Ensure that both objects contain the same number of properties.</p>
 
@@ -2280,11 +2333,11 @@ from different frames are.</p>
         </li>
         
         
-        <li id="section-110">
+        <li id="section-114">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-110">&#182;</a>
+                <a class="pilcrow" href="#section-114">&#182;</a>
               </div>
               <p>Remove the first object from the stack of traversed objects.</p>
 
@@ -2298,91 +2351,18 @@ from different frames are.</p>
         </li>
         
         
-        <li id="section-111">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-111">&#182;</a>
-              </div>
-              <p>Perform a deep comparison to check if two objects are equal.</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>  _.isEqual = <span class="keyword">function</span>(a, b) {
-    <span class="keyword">return</span> eq(a, b, [], []);
-  };</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-112">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-112">&#182;</a>
-              </div>
-              <p>Is a given array, string, or object empty?
-An &quot;empty&quot; object has no enumerable own-properties.</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>  _.isEmpty = <span class="keyword">function</span>(obj) {
-    <span class="keyword">if</span> (obj == <span class="literal">null</span>) <span class="keyword">return</span> <span class="literal">true</span>;
-    <span class="keyword">if</span> (_.isArray(obj) || _.isString(obj)) <span class="keyword">return</span> obj.length === <span class="number">0</span>;
-    <span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> obj) <span class="keyword">if</span> (_.has(obj, key)) <span class="keyword">return</span> <span class="literal">false</span>;
-    <span class="keyword">return</span> <span class="literal">true</span>;
-  };</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-113">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-113">&#182;</a>
-              </div>
-              <p>Is a given value a DOM element?</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>  _.isElement = <span class="keyword">function</span>(obj) {
-    <span class="keyword">return</span> !!(obj &amp;&amp; obj.nodeType === <span class="number">1</span>);
-  };</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-114">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-114">&#182;</a>
-              </div>
-              <p>Is a given value an array?
-Delegates to ECMA5&#39;s native Array.isArray</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>  _.isArray = nativeIsArray || <span class="keyword">function</span>(obj) {
-    <span class="keyword">return</span> toString.call(obj) == <span class="string">'[object Array]'</span>;
-  };</pre></div></div>
-            
-        </li>
-        
-        
         <li id="section-115">
             <div class="annotation">
               
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-115">&#182;</a>
               </div>
-              <p>Is a given variable an object?</p>
+              <p>Perform a deep comparison to check if two objects are equal.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  _.isObject = <span class="keyword">function</span>(obj) {
-    <span class="keyword">return</span> obj === Object(obj);
+            <div class="content"><div class='highlight'><pre>  _.isEqual = <span class="function"><span class="keyword">function</span><span class="params">(a, b)</span> {</span>
+    <span class="keyword">return</span> eq(a, b, [], []);
   };</pre></div></div>
             
         </li>
@@ -2394,15 +2374,17 @@ Delegates to ECMA5&#39;s native Array.isArray</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-116">&#182;</a>
               </div>
-              <p>Add some isType methods: isArguments, isFunction, isString, isNumber, isDate, isRegExp.</p>
+              <p>isEmpty函数： 判断给定的数组、字符串或者对象是否为空。
+一个空的对象意味这个对象未包含任何实例属性(own-properties)。</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  each([<span class="string">'Arguments'</span>, <span class="string">'Function'</span>, <span class="string">'String'</span>, <span class="string">'Number'</span>, <span class="string">'Date'</span>, <span class="string">'RegExp'</span>], <span class="keyword">function</span>(name) {
-    _[<span class="string">'is'</span> + name] = <span class="keyword">function</span>(obj) {
-      <span class="keyword">return</span> toString.call(obj) == <span class="string">'[object '</span> + name + <span class="string">']'</span>;
-    };
-  });</pre></div></div>
+            <div class="content"><div class='highlight'><pre>  _.isEmpty = <span class="function"><span class="keyword">function</span><span class="params">(obj)</span> {</span>
+    <span class="keyword">if</span> (obj == <span class="literal">null</span>) <span class="keyword">return</span> <span class="literal">true</span>;
+    <span class="keyword">if</span> (_.isArray(obj) || _.isString(obj)) <span class="keyword">return</span> obj.length === <span class="number">0</span>;
+    <span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> obj) <span class="keyword">if</span> (_.has(obj, key)) <span class="keyword">return</span> <span class="literal">false</span>;
+    <span class="keyword">return</span> <span class="literal">true</span>;
+  };</pre></div></div>
             
         </li>
         
@@ -2413,16 +2395,13 @@ Delegates to ECMA5&#39;s native Array.isArray</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-117">&#182;</a>
               </div>
-              <p>Define a fallback version of the method in browsers (ahem, IE), where
-there isn&#39;t any inspectable &quot;Arguments&quot; type.</p>
+              <p>isElement函数：判断给定的值是否是一个DOM元素。</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  <span class="keyword">if</span> (!_.isArguments(arguments)) {
-    _.isArguments = <span class="keyword">function</span>(obj) {
-      <span class="keyword">return</span> !!(obj &amp;&amp; _.has(obj, <span class="string">'callee'</span>));
-    };
-  }</pre></div></div>
+            <div class="content"><div class='highlight'><pre>  _.isElement = <span class="function"><span class="keyword">function</span><span class="params">(obj)</span> {</span>
+    <span class="keyword">return</span> !!(obj &amp;&amp; obj.nodeType === <span class="number">1</span>);
+  };</pre></div></div>
             
         </li>
         
@@ -2433,15 +2412,14 @@ there isn&#39;t any inspectable &quot;Arguments&quot; type.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-118">&#182;</a>
               </div>
-              <p>Optimize <code>isFunction</code> if appropriate.</p>
+              <p>isArray函数：判断给定的值是否是一个数组。
+若<strong>ECMAScript 5</strong>的<code>Array.isArray</code>可用，将调用Array.isArray。</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  <span class="keyword">if</span> (<span class="keyword">typeof</span> (<span class="regexp">/./</span>) !== <span class="string">'function'</span>) {
-    _.isFunction = <span class="keyword">function</span>(obj) {
-      <span class="keyword">return</span> <span class="keyword">typeof</span> obj === <span class="string">'function'</span>;
-    };
-  }</pre></div></div>
+            <div class="content"><div class='highlight'><pre>  _.isArray = nativeIsArray || <span class="function"><span class="keyword">function</span><span class="params">(obj)</span> {</span>
+    <span class="keyword">return</span> toString.call(obj) == <span class="string">'[object Array]'</span>;
+  };</pre></div></div>
             
         </li>
         
@@ -2452,13 +2430,12 @@ there isn&#39;t any inspectable &quot;Arguments&quot; type.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-119">&#182;</a>
               </div>
-              <p>判断给定的变量是否有限数字，非<code>NaN</code>，<code>Infinity</code>，<code>-Infinity</code>。
-[注] 由于原声的isFinite(&quot;&quot;)会返回true，所以这里通过&amp;&amp;判断obj是否是有效的数字。</p>
+              <p>isObject函数： 判断给定的值是否为对象。</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  _.isFinite = <span class="keyword">function</span>(obj) {
-    <span class="keyword">return</span> isFinite(obj) &amp;&amp; !isNaN(parseFloat(obj));
+            <div class="content"><div class='highlight'><pre>  _.isObject = <span class="function"><span class="keyword">function</span><span class="params">(obj)</span> {</span>
+    <span class="keyword">return</span> obj === Object(obj);
   };</pre></div></div>
             
         </li>
@@ -2470,13 +2447,15 @@ there isn&#39;t any inspectable &quot;Arguments&quot; type.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-120">&#182;</a>
               </div>
-              <p>判断给定的变量是否是<code>NaN</code>。<code>NaN</code>是唯一个不等于其自身的数值。</p>
+              <p>类型判断函数： isArguments, isFunction, isString, isNumber, isDate, isRegExp。</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  _.isNaN = <span class="keyword">function</span>(obj) {
-    <span class="keyword">return</span> _.isNumber(obj) &amp;&amp; obj != +obj;
-  };</pre></div></div>
+            <div class="content"><div class='highlight'><pre>  each([<span class="string">'Arguments'</span>, <span class="string">'Function'</span>, <span class="string">'String'</span>, <span class="string">'Number'</span>, <span class="string">'Date'</span>, <span class="string">'RegExp'</span>], <span class="function"><span class="keyword">function</span><span class="params">(name)</span> {</span>
+    _[<span class="string">'is'</span> + name] = <span class="function"><span class="keyword">function</span><span class="params">(obj)</span> {</span>
+      <span class="keyword">return</span> toString.call(obj) == <span class="string">'[object '</span> + name + <span class="string">']'</span>;
+    };
+  });</pre></div></div>
             
         </li>
         
@@ -2487,13 +2466,16 @@ there isn&#39;t any inspectable &quot;Arguments&quot; type.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-121">&#182;</a>
               </div>
-              <p>判断给定的变量是否是布尔类型值。</p>
+              <p>Define a fallback version of the method in browsers (ahem, IE), where
+there isn&#39;t any inspectable &quot;Arguments&quot; type.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  _.isBoolean = <span class="keyword">function</span>(obj) {
-    <span class="keyword">return</span> obj === <span class="literal">true</span> || obj === <span class="literal">false</span> || toString.call(obj) == <span class="string">'[object Boolean]'</span>;
-  };</pre></div></div>
+            <div class="content"><div class='highlight'><pre>  <span class="keyword">if</span> (!_.isArguments(arguments)) {
+    _.isArguments = <span class="function"><span class="keyword">function</span><span class="params">(obj)</span> {</span>
+      <span class="keyword">return</span> !!(obj &amp;&amp; _.has(obj, <span class="string">'callee'</span>));
+    };
+  }</pre></div></div>
             
         </li>
         
@@ -2504,13 +2486,15 @@ there isn&#39;t any inspectable &quot;Arguments&quot; type.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-122">&#182;</a>
               </div>
-              <p>判断给定的变量是否等于<code>null</code>。</p>
+              <p>Optimize <code>isFunction</code> if appropriate.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  _.isNull = <span class="keyword">function</span>(obj) {
-    <span class="keyword">return</span> obj === <span class="literal">null</span>;
-  };</pre></div></div>
+            <div class="content"><div class='highlight'><pre>  <span class="keyword">if</span> (<span class="keyword">typeof</span> (<span class="regexp">/./</span>) !== <span class="string">'function'</span>) {
+    _.isFunction = <span class="function"><span class="keyword">function</span><span class="params">(obj)</span> {</span>
+      <span class="keyword">return</span> <span class="keyword">typeof</span> obj === <span class="string">'function'</span>;
+    };
+  }</pre></div></div>
             
         </li>
         
@@ -2521,12 +2505,13 @@ there isn&#39;t any inspectable &quot;Arguments&quot; type.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-123">&#182;</a>
               </div>
-              <p>判断给定的变量是否等于<code>undefined</code>。[注] 与void操作符的返回值比对。</p>
+              <p>判断给定的变量是否有限数字，非<code>NaN</code>，<code>Infinity</code>，<code>-Infinity</code>。
+[注] 由于原声的isFinite(&quot;&quot;)会返回true，所以这里通过&amp;&amp;判断obj是否是有效的数字。</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  _.isUndefined = <span class="keyword">function</span>(obj) {
-    <span class="keyword">return</span> obj === <span class="keyword">void</span> <span class="number">0</span>;
+            <div class="content"><div class='highlight'><pre>  _.isFinite = <span class="function"><span class="keyword">function</span><span class="params">(obj)</span> {</span>
+    <span class="keyword">return</span> isFinite(obj) &amp;&amp; !isNaN(parseFloat(obj));
   };</pre></div></div>
             
         </li>
@@ -2538,12 +2523,12 @@ there isn&#39;t any inspectable &quot;Arguments&quot; type.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-124">&#182;</a>
               </div>
-              <p>判断key是否是obj的实例属性（也就是说，key非obj原型链上的属性）。</p>
+              <p>判断给定的变量是否是<code>NaN</code>。<code>NaN</code>是唯一个不等于其自身的数值。</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  _.has = <span class="keyword">function</span>(obj, key) {
-    <span class="keyword">return</span> hasOwnProperty.call(obj, key);
+            <div class="content"><div class='highlight'><pre>  _.isNaN = <span class="function"><span class="keyword">function</span><span class="params">(obj)</span> {</span>
+    <span class="keyword">return</span> _.isNumber(obj) &amp;&amp; obj != +obj;
   };</pre></div></div>
             
         </li>
@@ -2552,12 +2537,16 @@ there isn&#39;t any inspectable &quot;Arguments&quot; type.</p>
         <li id="section-125">
             <div class="annotation">
               
-              <div class="pilwrap for-h2">
+              <div class="pilwrap ">
                 <a class="pilcrow" href="#section-125">&#182;</a>
               </div>
-              <h2>Utility Functions</h2>
+              <p>判断给定的变量是否是布尔类型值。</p>
 
             </div>
+            
+            <div class="content"><div class='highlight'><pre>  _.isBoolean = <span class="function"><span class="keyword">function</span><span class="params">(obj)</span> {</span>
+    <span class="keyword">return</span> obj === <span class="literal">true</span> || obj === <span class="literal">false</span> || toString.call(obj) == <span class="string">'[object Boolean]'</span>;
+  };</pre></div></div>
             
         </li>
         
@@ -2568,14 +2557,12 @@ there isn&#39;t any inspectable &quot;Arguments&quot; type.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-126">&#182;</a>
               </div>
-              <p>以<em>noConfilct</em>模式运行Underscore.js，<code>_</code>变量将存放之间定义的对象。
-函数执行返回Underscore对象的引用</p>
+              <p>判断给定的变量是否等于<code>null</code>。</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  _.noConflict = <span class="keyword">function</span>() {
-    root._ = previousUnderscore;
-    <span class="keyword">return</span> <span class="keyword">this</span>;
+            <div class="content"><div class='highlight'><pre>  _.isNull = <span class="function"><span class="keyword">function</span><span class="params">(obj)</span> {</span>
+    <span class="keyword">return</span> obj === <span class="literal">null</span>;
   };</pre></div></div>
             
         </li>
@@ -2587,12 +2574,12 @@ there isn&#39;t any inspectable &quot;Arguments&quot; type.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-127">&#182;</a>
               </div>
-              <p>Keep the identity function around for default iterators.</p>
+              <p>判断给定的变量是否等于<code>undefined</code>。[注] 与void操作符的返回值比对。</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  _.identity = <span class="keyword">function</span>(value) {
-    <span class="keyword">return</span> value;
+            <div class="content"><div class='highlight'><pre>  _.isUndefined = <span class="function"><span class="keyword">function</span><span class="params">(obj)</span> {</span>
+    <span class="keyword">return</span> obj === <span class="keyword">void</span> <span class="number">0</span>;
   };</pre></div></div>
             
         </li>
@@ -2604,14 +2591,12 @@ there isn&#39;t any inspectable &quot;Arguments&quot; type.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-128">&#182;</a>
               </div>
-              <p>执行函数<strong>n</strong>次，返回函数每次执行返回值组成的数组</p>
+              <p>判断key是否是obj的实例属性（也就是说，key非obj原型链上的属性）。</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  _.times = <span class="keyword">function</span>(n, iterator, context) {
-    <span class="keyword">var</span> accum = Array(n);
-    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; n; i++) accum[i] = iterator.call(context, i);
-    <span class="keyword">return</span> accum;
+            <div class="content"><div class='highlight'><pre>  _.has = <span class="function"><span class="keyword">function</span><span class="params">(obj, key)</span> {</span>
+    <span class="keyword">return</span> hasOwnProperty.call(obj, key);
   };</pre></div></div>
             
         </li>
@@ -2623,17 +2608,9 @@ there isn&#39;t any inspectable &quot;Arguments&quot; type.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-129">&#182;</a>
               </div>
-              <p>返回min与max之间的随机数字（包括min和max）</p>
+              <h2 id="-">工具函数</h2>
 
             </div>
-            
-            <div class="content"><div class='highlight'><pre>  _.random = <span class="keyword">function</span>(min, max) {
-    <span class="keyword">if</span> (max == <span class="literal">null</span>) {
-      max = min;
-      min = <span class="number">0</span>;
-    }
-    <span class="keyword">return</span> min + Math.floor(Math.random() * (max - min + <span class="number">1</span>));
-  };</pre></div></div>
             
         </li>
         
@@ -2644,7 +2621,84 @@ there isn&#39;t any inspectable &quot;Arguments&quot; type.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-130">&#182;</a>
               </div>
-              <p>List of HTML entities for escaping.</p>
+              <p>以<em>noConfilct</em>模式运行Underscore.js，<code>_</code>变量将存放之间定义的对象。
+函数执行返回Underscore对象的引用</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  _.noConflict = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+    root._ = previousUnderscore;
+    <span class="keyword">return</span> <span class="keyword">this</span>;
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-131">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-131">&#182;</a>
+              </div>
+              <p>identity函数： 返回参数的值。
+作为默认的迭代函数，用于类似<code>_.filter</code>迭代类型函数的参数。</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  _.identity = <span class="function"><span class="keyword">function</span><span class="params">(value)</span> {</span>
+    <span class="keyword">return</span> value;
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-132">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-132">&#182;</a>
+              </div>
+              <p>执行函数<strong>n</strong>次，返回函数每次执行返回值组成的数组</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  _.times = <span class="function"><span class="keyword">function</span><span class="params">(n, iterator, context)</span> {</span>
+    <span class="keyword">var</span> accum = Array(n);
+    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; n; i++) accum[i] = iterator.call(context, i);
+    <span class="keyword">return</span> accum;
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-133">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-133">&#182;</a>
+              </div>
+              <p>返回min与max之间的随机数字（包括min和max）</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  _.random = <span class="function"><span class="keyword">function</span><span class="params">(min, max)</span> {</span>
+    <span class="keyword">if</span> (max == <span class="literal">null</span>) {
+      max = min;
+      min = <span class="number">0</span>;
+    }
+    <span class="keyword">return</span> min + Math.floor(Math.random() * (max - min + <span class="number">1</span>));
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-134">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-134">&#182;</a>
+              </div>
+              <p>HTML 实体转义表</p>
 
             </div>
             
@@ -2663,11 +2717,11 @@ there isn&#39;t any inspectable &quot;Arguments&quot; type.</p>
         </li>
         
         
-        <li id="section-131">
+        <li id="section-135">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-131">&#182;</a>
+                <a class="pilcrow" href="#section-135">&#182;</a>
               </div>
               <p>Regexes containing the keys and values listed immediately above.</p>
 
@@ -2681,20 +2735,20 @@ there isn&#39;t any inspectable &quot;Arguments&quot; type.</p>
         </li>
         
         
-        <li id="section-132">
+        <li id="section-136">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-132">&#182;</a>
+                <a class="pilcrow" href="#section-136">&#182;</a>
               </div>
               <p>Functions for escaping and unescaping strings to/from HTML interpolation.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  _.each([<span class="string">'escape'</span>, <span class="string">'unescape'</span>], <span class="keyword">function</span>(method) {
-    _[method] = <span class="keyword">function</span>(string) {
+            <div class="content"><div class='highlight'><pre>  _.each([<span class="string">'escape'</span>, <span class="string">'unescape'</span>], <span class="function"><span class="keyword">function</span><span class="params">(method)</span> {</span>
+    _[method] = <span class="function"><span class="keyword">function</span><span class="params">(string)</span> {</span>
       <span class="keyword">if</span> (string == <span class="literal">null</span>) <span class="keyword">return</span> <span class="string">''</span>;
-      <span class="keyword">return</span> (<span class="string">''</span> + string).replace(entityRegexes[method], <span class="keyword">function</span>(match) {
+      <span class="keyword">return</span> (<span class="string">''</span> + string).replace(entityRegexes[method], <span class="function"><span class="keyword">function</span><span class="params">(match)</span> {</span>
         <span class="keyword">return</span> entityMap[method][match];
       });
     };
@@ -2703,18 +2757,18 @@ there isn&#39;t any inspectable &quot;Arguments&quot; type.</p>
         </li>
         
         
-        <li id="section-133">
+        <li id="section-137">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-133">&#182;</a>
+                <a class="pilcrow" href="#section-137">&#182;</a>
               </div>
               <p>If the value of the named <code>property</code> is a function then invoke it with the
 <code>object</code> as context; otherwise, return it.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  _.result = <span class="keyword">function</span>(object, property) {
+            <div class="content"><div class='highlight'><pre>  _.result = <span class="function"><span class="keyword">function</span><span class="params">(object, property)</span> {</span>
     <span class="keyword">if</span> (object == <span class="literal">null</span>) <span class="keyword">return</span> <span class="keyword">void</span> <span class="number">0</span>;
     <span class="keyword">var</span> value = object[property];
     <span class="keyword">return</span> _.isFunction(value) ? value.call(object) : value;
@@ -2723,20 +2777,20 @@ there isn&#39;t any inspectable &quot;Arguments&quot; type.</p>
         </li>
         
         
-        <li id="section-134">
+        <li id="section-138">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-134">&#182;</a>
+                <a class="pilcrow" href="#section-138">&#182;</a>
               </div>
               <p>Add your own custom functions to the Underscore object.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  _.mixin = <span class="keyword">function</span>(obj) {
-    each(_.functions(obj), <span class="keyword">function</span>(name){
+            <div class="content"><div class='highlight'><pre>  _.mixin = <span class="function"><span class="keyword">function</span><span class="params">(obj)</span> {</span>
+    each(_.functions(obj), <span class="function"><span class="keyword">function</span><span class="params">(name)</span>{</span>
       <span class="keyword">var</span> func = _[name] = obj[name];
-      _.prototype[name] = <span class="keyword">function</span>() {
+      _.prototype[name] = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
         <span class="keyword">var</span> args = [<span class="keyword">this</span>._wrapped];
         push.apply(args, arguments);
         <span class="keyword">return</span> result.call(<span class="keyword">this</span>, func.apply(_, args));
@@ -2747,11 +2801,11 @@ there isn&#39;t any inspectable &quot;Arguments&quot; type.</p>
         </li>
         
         
-        <li id="section-135">
+        <li id="section-139">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-135">&#182;</a>
+                <a class="pilcrow" href="#section-139">&#182;</a>
               </div>
               <p>Generate a unique integer id (unique within the entire client session).
 Useful for temporary DOM ids.</p>
@@ -2759,7 +2813,7 @@ Useful for temporary DOM ids.</p>
             </div>
             
             <div class="content"><div class='highlight'><pre>  <span class="keyword">var</span> idCounter = <span class="number">0</span>;
-  _.uniqueId = <span class="keyword">function</span>(prefix) {
+  _.uniqueId = <span class="function"><span class="keyword">function</span><span class="params">(prefix)</span> {</span>
     <span class="keyword">var</span> id = ++idCounter + <span class="string">''</span>;
     <span class="keyword">return</span> prefix ? prefix + id : id;
   };</pre></div></div>
@@ -2767,11 +2821,11 @@ Useful for temporary DOM ids.</p>
         </li>
         
         
-        <li id="section-136">
+        <li id="section-140">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-136">&#182;</a>
+                <a class="pilcrow" href="#section-140">&#182;</a>
               </div>
               <p>By default, Underscore uses ERB-style template delimiters, change the
 following template settings to use alternative delimiters.</p>
@@ -2787,11 +2841,11 @@ following template settings to use alternative delimiters.</p>
         </li>
         
         
-        <li id="section-137">
+        <li id="section-141">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-137">&#182;</a>
+                <a class="pilcrow" href="#section-141">&#182;</a>
               </div>
               <p>When customizing <code>templateSettings</code>, if you don&#39;t want to define an
 interpolation, evaluation or escaping regex, we need one that is
@@ -2804,11 +2858,11 @@ guaranteed not to match.</p>
         </li>
         
         
-        <li id="section-138">
+        <li id="section-142">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-138">&#182;</a>
+                <a class="pilcrow" href="#section-142">&#182;</a>
               </div>
               <p>Certain characters need to be escaped so that they can be put into a
 string literal.</p>
@@ -2830,11 +2884,11 @@ string literal.</p>
         </li>
         
         
-        <li id="section-139">
+        <li id="section-143">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-139">&#182;</a>
+                <a class="pilcrow" href="#section-143">&#182;</a>
               </div>
               <p>JavaScript micro-templating, similar to John Resig&#39;s implementation.
 Underscore templating handles arbitrary delimiters, preserves whitespace,
@@ -2842,18 +2896,18 @@ and correctly escapes quotes within interpolated code.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  _.template = <span class="keyword">function</span>(text, data, settings) {
+            <div class="content"><div class='highlight'><pre>  _.template = <span class="function"><span class="keyword">function</span><span class="params">(text, data, settings)</span> {</span>
     <span class="keyword">var</span> render;
     settings = _.defaults({}, settings, _.templateSettings);</pre></div></div>
             
         </li>
         
         
-        <li id="section-140">
+        <li id="section-144">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-140">&#182;</a>
+                <a class="pilcrow" href="#section-144">&#182;</a>
               </div>
               <p>Combine delimiters into one regular expression via alternation.</p>
 
@@ -2868,11 +2922,11 @@ and correctly escapes quotes within interpolated code.</p>
         </li>
         
         
-        <li id="section-141">
+        <li id="section-145">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-141">&#182;</a>
+                <a class="pilcrow" href="#section-145">&#182;</a>
               </div>
               <p>Compile the template source, escaping string literals appropriately.</p>
 
@@ -2880,9 +2934,9 @@ and correctly escapes quotes within interpolated code.</p>
             
             <div class="content"><div class='highlight'><pre>    <span class="keyword">var</span> index = <span class="number">0</span>;
     <span class="keyword">var</span> source = <span class="string">"__p+='"</span>;
-    text.replace(matcher, <span class="keyword">function</span>(match, escape, interpolate, evaluate, offset) {
+    text.replace(matcher, <span class="function"><span class="keyword">function</span><span class="params">(match, escape, interpolate, evaluate, offset)</span> {</span>
       source += text.slice(index, offset)
-        .replace(escaper, <span class="keyword">function</span>(match) { <span class="keyword">return</span> <span class="string">'\\'</span> + escapes[match]; });
+        .replace(escaper, <span class="function"><span class="keyword">function</span><span class="params">(match)</span> {</span> <span class="keyword">return</span> <span class="string">'\\'</span> + escapes[match]; });
 
       <span class="keyword">if</span> (escape) {
         source += <span class="string">"'+\n((__t=("</span> + escape + <span class="string">"))==null?'':_.escape(__t))+\n'"</span>;
@@ -2901,11 +2955,11 @@ and correctly escapes quotes within interpolated code.</p>
         </li>
         
         
-        <li id="section-142">
+        <li id="section-146">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-142">&#182;</a>
+                <a class="pilcrow" href="#section-146">&#182;</a>
               </div>
               <p>If a variable is not specified, place data values in local scope.</p>
 
@@ -2925,18 +2979,18 @@ and correctly escapes quotes within interpolated code.</p>
     }
 
     <span class="keyword">if</span> (data) <span class="keyword">return</span> render(data, _);
-    <span class="keyword">var</span> template = <span class="keyword">function</span>(data) {
+    <span class="keyword">var</span> template = <span class="function"><span class="keyword">function</span><span class="params">(data)</span> {</span>
       <span class="keyword">return</span> render.call(<span class="keyword">this</span>, data, _);
     };</pre></div></div>
             
         </li>
         
         
-        <li id="section-143">
+        <li id="section-147">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-143">&#182;</a>
+                <a class="pilcrow" href="#section-147">&#182;</a>
               </div>
               <p>Provide the compiled function source as a convenience for precompilation.</p>
 
@@ -2950,90 +3004,19 @@ and correctly escapes quotes within interpolated code.</p>
         </li>
         
         
-        <li id="section-144">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-144">&#182;</a>
-              </div>
-              <p>Add a &quot;chain&quot; function, which will delegate to the wrapper.</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>  _.chain = <span class="keyword">function</span>(obj) {
-    <span class="keyword">return</span> _(obj).chain();
-  };</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-145">
-            <div class="annotation">
-              
-              <div class="pilwrap for-h2">
-                <a class="pilcrow" href="#section-145">&#182;</a>
-              </div>
-              <h2>OOP</h2>
-<p>If Underscore is called as a function, it returns a wrapped object that
-can be used OO-style. This wrapper holds altered versions of all the
-underscore functions. Wrapped objects may be chained.</p>
-
-            </div>
-            
-        </li>
-        
-        
-        <li id="section-146">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-146">&#182;</a>
-              </div>
-              <p>Helper function to continue chaining intermediate results.</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>  <span class="keyword">var</span> result = <span class="keyword">function</span>(obj) {
-    <span class="keyword">return</span> <span class="keyword">this</span>._chain ? _(obj).chain() : obj;
-  };</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-147">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-147">&#182;</a>
-              </div>
-              <p>Add all of the Underscore functions to the wrapper object.</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>  _.mixin(_);</pre></div></div>
-            
-        </li>
-        
-        
         <li id="section-148">
             <div class="annotation">
               
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-148">&#182;</a>
               </div>
-              <p>Add all mutator Array functions to the wrapper.</p>
+              <p>Add a &quot;chain&quot; function, which will delegate to the wrapper.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  each([<span class="string">'pop'</span>, <span class="string">'push'</span>, <span class="string">'reverse'</span>, <span class="string">'shift'</span>, <span class="string">'sort'</span>, <span class="string">'splice'</span>, <span class="string">'unshift'</span>], <span class="keyword">function</span>(name) {
-    <span class="keyword">var</span> method = ArrayProto[name];
-    _.prototype[name] = <span class="keyword">function</span>() {
-      <span class="keyword">var</span> obj = <span class="keyword">this</span>._wrapped;
-      method.apply(obj, arguments);
-      <span class="keyword">if</span> ((name == <span class="string">'shift'</span> || name == <span class="string">'splice'</span>) &amp;&amp; obj.length === <span class="number">0</span>) <span class="keyword">delete</span> obj[<span class="number">0</span>];
-      <span class="keyword">return</span> result.call(<span class="keyword">this</span>, obj);
-    };
-  });</pre></div></div>
+            <div class="content"><div class='highlight'><pre>  _.chain = <span class="function"><span class="keyword">function</span><span class="params">(obj)</span> {</span>
+    <span class="keyword">return</span> _(obj).chain();
+  };</pre></div></div>
             
         </li>
         
@@ -3044,18 +3027,9 @@ underscore functions. Wrapped objects may be chained.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-149">&#182;</a>
               </div>
-              <p>Add all accessor Array functions to the wrapper.</p>
+              <h2 id="oop">OOP</h2>
 
             </div>
-            
-            <div class="content"><div class='highlight'><pre>  each([<span class="string">'concat'</span>, <span class="string">'join'</span>, <span class="string">'slice'</span>], <span class="keyword">function</span>(name) {
-    <span class="keyword">var</span> method = ArrayProto[name];
-    _.prototype[name] = <span class="keyword">function</span>() {
-      <span class="keyword">return</span> result.call(<span class="keyword">this</span>, method.apply(<span class="keyword">this</span>._wrapped, arguments));
-    };
-  });
-
-  _.extend(_.prototype, {</pre></div></div>
             
         </li>
         
@@ -3066,14 +3040,16 @@ underscore functions. Wrapped objects may be chained.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-150">&#182;</a>
               </div>
-              <p>Start chaining a wrapped Underscore object.</p>
+              <p>If Underscore is called as a function, it returns a wrapped object that
+can be used OO-style. This wrapper holds altered versions of all the
+underscore functions. Wrapped objects may be chained.</p>
+<p>Helper function to continue chaining intermediate results.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>    chain: <span class="keyword">function</span>() {
-      <span class="keyword">this</span>._chain = <span class="literal">true</span>;
-      <span class="keyword">return</span> <span class="keyword">this</span>;
-    },</pre></div></div>
+            <div class="content"><div class='highlight'><pre>  <span class="keyword">var</span> result = <span class="function"><span class="keyword">function</span><span class="params">(obj)</span> {</span>
+    <span class="keyword">return</span> <span class="keyword">this</span>._chain ? _(obj).chain() : obj;
+  };</pre></div></div>
             
         </li>
         
@@ -3084,11 +3060,89 @@ underscore functions. Wrapped objects may be chained.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-151">&#182;</a>
               </div>
+              <p>Add all of the Underscore functions to the wrapper object.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  _.mixin(_);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-152">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-152">&#182;</a>
+              </div>
+              <p>Add all mutator Array functions to the wrapper.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  each([<span class="string">'pop'</span>, <span class="string">'push'</span>, <span class="string">'reverse'</span>, <span class="string">'shift'</span>, <span class="string">'sort'</span>, <span class="string">'splice'</span>, <span class="string">'unshift'</span>], <span class="function"><span class="keyword">function</span><span class="params">(name)</span> {</span>
+    <span class="keyword">var</span> method = ArrayProto[name];
+    _.prototype[name] = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+      <span class="keyword">var</span> obj = <span class="keyword">this</span>._wrapped;
+      method.apply(obj, arguments);
+      <span class="keyword">if</span> ((name == <span class="string">'shift'</span> || name == <span class="string">'splice'</span>) &amp;&amp; obj.length === <span class="number">0</span>) <span class="keyword">delete</span> obj[<span class="number">0</span>];
+      <span class="keyword">return</span> result.call(<span class="keyword">this</span>, obj);
+    };
+  });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-153">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-153">&#182;</a>
+              </div>
+              <p>Add all accessor Array functions to the wrapper.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  each([<span class="string">'concat'</span>, <span class="string">'join'</span>, <span class="string">'slice'</span>], <span class="function"><span class="keyword">function</span><span class="params">(name)</span> {</span>
+    <span class="keyword">var</span> method = ArrayProto[name];
+    _.prototype[name] = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+      <span class="keyword">return</span> result.call(<span class="keyword">this</span>, method.apply(<span class="keyword">this</span>._wrapped, arguments));
+    };
+  });
+
+  _.extend(_.prototype, {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-154">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-154">&#182;</a>
+              </div>
+              <p>Start chaining a wrapped Underscore object.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    chain: <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+      <span class="keyword">this</span>._chain = <span class="literal">true</span>;
+      <span class="keyword">return</span> <span class="keyword">this</span>;
+    },</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-155">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-155">&#182;</a>
+              </div>
               <p>Extracts the result from a wrapped and chained object.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>    value: <span class="keyword">function</span>() {
+            <div class="content"><div class='highlight'><pre>    value: <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
       <span class="keyword">return</span> <span class="keyword">this</span>._wrapped;
     }
 

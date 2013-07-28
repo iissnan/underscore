@@ -28,7 +28,7 @@
       toString         = ObjProto.toString,
       hasOwnProperty   = ObjProto.hasOwnProperty;
 
-  // 定义将要实现的 **ECMAScript 5** 原生方法
+  // **ECMAScript 5** 原生方法
   var
     nativeForEach      = ArrayProto.forEach,
     nativeMap          = ArrayProto.map,
@@ -254,7 +254,7 @@
     });
   };
 
-  // Convenience version of a common use case of `map`: fetching a property.
+  // 快捷方法，对使用`map`获取集合元素属性值场景的封装。
   _.pluck = function(obj, key) {
     return _.map(obj, function(value){ return value[key]; });
   };
@@ -784,7 +784,7 @@
     return pairs;
   };
 
-  // Invert the keys and values of an object. The values must be serializable.
+  // 转换对象的键值对。
   _.invert = function(obj) {
     var result = {};
     for (var key in obj) if (_.has(obj, key)) result[obj[key]] = key;
@@ -845,7 +845,7 @@
     return obj;
   };
 
-  // Create a (shallow-cloned) duplicate of an object.
+  // 浅复制 `obj`。obj若非对象，返回`obj`。
   _.clone = function(obj) {
     if (!_.isObject(obj)) return obj;
     return _.isArray(obj) ? obj.slice() : _.extend({}, obj);
@@ -1033,7 +1033,7 @@
     return hasOwnProperty.call(obj, key);
   };
 
-  // Utility Functions
+  // 工具函数
   // -----------------
 
   // 以*noConfilct*模式运行Underscore.js，`_`变量将存放之间定义的对象。
@@ -1065,7 +1065,7 @@
     return min + Math.floor(Math.random() * (max - min + 1));
   };
 
-  // List of HTML entities for escaping.
+  // HTML 实体转义表
   var entityMap = {
     escape: {
       '&': '&amp;',
