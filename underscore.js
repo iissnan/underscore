@@ -241,11 +241,15 @@
     });
   };
 
-  // Invoke a method (with arguments) on every item in a collection.
+  // 在集合的每个元素上调用方法，方法可带参数。
   _.invoke = function(obj, method) {
+
+    // 获取参数
     var args = slice.call(arguments, 2);
     var isFunc = _.isFunction(method);
     return _.map(obj, function(value) {
+
+      // 若传入的`method`类型不是函数，将尝试调用集合元素对象的`method`方法
       return (isFunc ? method : value[method]).apply(value, args);
     });
   };
@@ -303,7 +307,7 @@
     return result.value;
   };
 
-  // Shuffle an array.
+  // 数组随机排序
   _.shuffle = function(obj) {
     var rand;
     var index = 0;
@@ -507,8 +511,9 @@
     return _.filter(array, function(value){ return !_.contains(rest, value); });
   };
 
-  // Zip together multiple lists into a single array -- elements that share
-  // an index go together.
+  // 将多个数组合并成一个数字，各数组中索引值相同的元素将合并在一起。
+  // 例如：_.zip([1, 2, 3], ["a", "b", "c"]) => [[1, "a"], [2, "b"], [3, "c"]]。
+  // 对于长度不同是数组，会出现`undefined`的元素。
   _.zip = function() {
     var args = slice.call(arguments);
     var length = _.max(_.pluck(args, 'length'));
@@ -535,12 +540,9 @@
     return result;
   };
 
-  // If the browser doesn't supply us with indexOf (I'm looking at you, **MSIE**),
-  // we need this function. Return the position of the first occurrence of an
-  // item in an array, or -1 if the item is not included in the array.
-  // Delegates to **ECMAScript 5**'s native `indexOf` if available.
-  // If the array is large and already in sort order, pass `true`
-  // for **isSorted** to use binary search.
+  // 获取元素在数组中第一次出现的索引值。
+  // 若**ECMAScript 5**原生的`indexOf`可用，将调用原生方法。
+  // **isSorted**表示对已排好序的大数组使用二分查找
   _.indexOf = function(array, item, isSorted) {
     if (array == null) return -1;
     var i = 0, l = array.length;
@@ -557,7 +559,8 @@
     return -1;
   };
 
-  // Delegates to **ECMAScript 5**'s native `lastIndexOf` if available.
+  // 搜索元素在数组中最后一次出现的索引值。
+  // 若**ECMAScript 5**原生的`lastIndexOf`可用，将调用原生方法。
   _.lastIndexOf = function(array, item, from) {
     if (array == null) return -1;
     var hasIndex = from != null;
@@ -569,14 +572,19 @@
     return -1;
   };
 
-  // Generate an integer Array containing an arithmetic progression. A port of
-  // the native Python `range()` function. See
+  // 创建一个包含一等差数列的整型数组。Python `range()`的一个等价实现。见：
   // [the Python documentation](http://docs.python.org/library/functions.html#range).
   _.range = function(start, stop, step) {
+
+    // 若参数个数少于或者等于1时，起步值`start`设置为0
+    //     参数个数一个：终止值为此参数`start`
+    //     参数个数为0：终止值为0
     if (arguments.length <= 1) {
       stop = start || 0;
       start = 0;
     }
+
+    // 步长默认为1
     step = arguments[2] || 1;
 
     var len = Math.max(Math.ceil((stop - start) / step), 0);
